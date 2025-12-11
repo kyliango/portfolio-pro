@@ -657,12 +657,53 @@
             navigator.clipboard.writeText('Kylian.giard@outlook.fr');
             showNotif('Email copié dans le presse-papier !');
         }
-        function handleFormSubmit(event) {
-            // Si vous utilisez Formspree, enlevez le preventDefault() pour laisser le formulaire partir
-            // event.preventDefault(); 
-            // document.getElementById('contactForm').reset();
-            // showNotif('Message envoyé avec succès !');
+      // GESTION DU FORMULAIRE (AJAX)
+        async function handleFormSubmit(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('notification');
+            const data = new FormData(event.target);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // 1. État de chargement
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
+            submitBtn.disabled = true;
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // 2. Succès
+                    showNotif("Message envoyé avec succès !");
+                    form.reset(); // Vide le formulaire
+                } else {
+                    // 3. Erreur Formspree
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            showNotif(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            showNotif("Oups ! Une erreur est survenue.");
+                        }
+                    });
+                }
+            }).catch(error => {
+                // 4. Erreur Réseau
+                showNotif("Erreur de connexion. Réessayez.");
+            }).finally(() => {
+                // 5. Rétablir le bouton
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
         }
+
+        // ATTENTION : Ajoute cette ligne juste après la fonction pour activer l'écouteur
+        document.getElementById('contactForm').addEventListener("submit", handleFormSubmit);
         function showNotif(msg) {
             const notif = document.getElementById('notification');
             document.getElementById('notif-text').innerText = msg;
