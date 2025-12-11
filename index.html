@@ -396,7 +396,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Formulaire : Voir instruction en bas pour le rendre actif -->
+                    <!-- Formulaire : -->
                     <form id="contactForm" class="space-y-4" action="https://formspree.io/f/meoyplby" method="POST">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
@@ -613,7 +613,6 @@
             const modal = document.getElementById(id);
             modal.classList.remove('hidden'); 
             modal.classList.add('flex');
-            // Petit délai pour permettre la transition CSS
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 const inner = modal.querySelector('div');
@@ -633,7 +632,7 @@
                 modal.classList.add('hidden'); 
                 modal.classList.remove('flex');
                 document.body.style.overflow = '';
-            }, 300); // Correspond à la durée de transition CSS
+            }, 300);
         }
 
         // FILTERS
@@ -644,7 +643,6 @@
             items.forEach(item => {
                 if(category === 'all' || item.dataset.category.includes(category)) {
                     item.classList.remove('hidden-card');
-                    // Petit effet d'apparition
                     item.style.opacity = '0';
                     setTimeout(() => item.style.opacity = '1', 50);
                 } else {
@@ -660,7 +658,7 @@
         }
       // GESTION DU FORMULAIRE (AJAX)
         async function handleFormSubmit(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
+            event.preventDefault();
             
             const form = document.getElementById('contactForm');
             const status = document.getElementById('notification');
@@ -682,7 +680,7 @@
                 if (response.ok) {
                     // 2. Succès
                     showNotif("Message envoyé avec succès !");
-                    form.reset(); // Vide le formulaire
+                    form.reset(); 
                 } else {
                     // 3. Erreur Formspree
                     response.json().then(data => {
@@ -703,7 +701,6 @@
             });
         }
 
-        // ATTENTION : Ajoute cette ligne juste après la fonction pour activer l'écouteur
         document.getElementById('contactForm').addEventListener("submit", handleFormSubmit);
         function showNotif(msg) {
             const notif = document.getElementById('notification');
