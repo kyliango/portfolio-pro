@@ -1,56 +1,189 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales | Kylian Giard Ouadifi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #0f172a; color: #94a3b8; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#FAFAF8', beige: '#F5F3EF', sand: '#E8E4DD',
+                        charcoal: '#2B2B2B', slate: '#64748B',
+                        lavender: '#A78BFA', mint: '#86EFAC',
+                        peach: '#FDBA74', sky: '#7DD3FC', coral: '#F87171',
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body class="py-12 px-4">
-    <div class="max-w-4xl mx-auto">
-        <a href="index.html" class="text-indigo-400 hover:text-white transition-colors mb-8 inline-block">
-            <i class="fas fa-arrow-left mr-2"></i> Retour au portfolio
-        </a>
-        
-        <header class="mb-12">
-            <h1 class="text-4xl font-bold text-white mb-4">Mentions Légales</h1>
-            <p>En vigueur au 25 Janvier 2026</p>
-        </header>
 
-        <main class="space-y-8">
-            <section class="glass p-8 rounded-2xl">
-                <h2 class="text-xl font-semibold text-white mb-4">1. Édition du site</h2>
-                <p>Le présent site est édité par : <strong>Kylian Giard Ouadifi</strong></p>
-                <p>Domicilié à : Courbevoie (92400)</p>
-                <p>Contact : Kylian-giard@outlook.fr | 07 87 41 95 76</p>
-            </section>
+<body class="font-sans antialiased text-charcoal overflow-x-hidden">
 
-            <section class="glass p-8 rounded-2xl">
-                <h2 class="text-xl font-semibold text-white mb-4">2. Hébergement</h2>
-                <p>Le site est hébergé par : <strong>GitHub Inc.</strong></p>
-                <p>Adresse : 88 Colin P. Kelly Jr St, San Francisco, CA 94107, États-Unis</p>
-                <p>Site web : <a href="https://pages.github.com" class="text-indigo-400">https://pages.github.com</a></p>
-            </section>
+    <nav class="fixed w-full z-50 bg-cream/80 backdrop-blur-md border-b border-sand/50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html"
+                    class="font-display text-2xl font-bold tracking-tight hover:scale-105 transition-transform">
+                    KGO<span class="text-lavender">.</span>
+                </a>
+                <a href="index.html"
+                    class="inline-flex items-center gap-2 text-slate hover:text-charcoal font-medium transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour au portfolio
+                </a>
+            </div>
+        </div>
+    </nav>
 
-            <section class="glass p-8 rounded-2xl">
-                <h2 class="text-xl font-semibold text-white mb-4">3. Propriété intellectuelle</h2>
-                <p>L'ensemble de ce site (structure, textes, logos, codes sources) relève de la législation française et internationale sur le droit d'auteur. Toute reproduction ou représentation, intégrale ou partielle, faite sans le consentement de l'auteur est illicite.</p>
-            </section>
+    <section class="pt-32 pb-20 px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto">
 
-            <section class="glass p-8 rounded-2xl">
-                <h2 class="text-xl font-semibold text-white mb-4">4. Données personnelles</h2>
-                <p>Le site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Le formulaire de contact utilise le service <strong>Formspree</strong>. Les données transmises sont uniquement destinées à répondre à vos demandes professionnelles et ne sont jamais cédées à des tiers.</p>
-            </section>
-        </main>
+            <div class="text-center mb-16 reveal">
+                <div
+                    class="inline-flex items-center gap-2 bg-lavender/20 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i class="fas fa-balance-scale"></i>
+                    Informations Légales
+                </div>
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-4">Mentions Légales</h1>
+                <p class="text-slate text-lg">En vigueur au 7 Février 2026</p>
+            </div>
 
-        <footer class="mt-12 text-center text-sm">
-            <p>© 2026 Kylian Giard Ouadifi - Tous droits réservés.</p>
-        </footer>
-    </div>
+            <div class="space-y-6">
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-lavender/20 flex items-center justify-center text-lavender text-xl">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h2 class="font-display text-2xl font-bold">1. Édition du site</h2>
+                    </div>
+                    <div class="space-y-3 text-slate">
+                        <p><strong class="text-charcoal">Éditeur :</strong> Kylian Giard Ouadifi</p>
+                        <p><strong class="text-charcoal">Domicile :</strong> Courbevoie (92400), France</p>
+                        <p><strong class="text-charcoal">Contact :</strong></p>
+                        <ul class="ml-6 space-y-1">
+                            <li><i class="fas fa-envelope text-lavender mr-2"></i>Kylian-giard@outlook.fr</li>
+                            <li><i class="fas fa-phone text-lavender mr-2"></i>07 87 41 95 76</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-sky/20 flex items-center justify-center text-sky-600 text-xl">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h2 class="font-display text-2xl font-bold">2. Hébergement</h2>
+                    </div>
+                    <div class="space-y-3 text-slate">
+                        <p><strong class="text-charcoal">Hébergeur :</strong> GitHub Inc.</p>
+                        <p><strong class="text-charcoal">Adresse :</strong> 88 Colin P. Kelly Jr St, San Francisco, CA
+                            94107, États-Unis</p>
+                        <p><strong class="text-charcoal">Site web :</strong> <a href="https://pages.github.com"
+                                target="_blank"
+                                class="text-sky-600 hover:text-sky-700 underline">https://pages.github.com</a></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-mint/20 flex items-center justify-center text-green-600 text-xl">
+                            <i class="fas fa-copyright"></i>
+                        </div>
+                        <h2 class="font-display text-2xl font-bold">3. Propriété intellectuelle</h2>
+                    </div>
+                    <div class="text-slate leading-relaxed">
+                        <p>L'ensemble de ce site (structure, textes, logos, codes sources) relève de la législation
+                            française et internationale sur le droit d'auteur. Toute reproduction ou représentation,
+                            intégrale ou partielle, faite sans le consentement de l'auteur est illicite et constitue une
+                            contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété
+                            intellectuelle.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-peach/20 flex items-center justify-center text-orange-600 text-xl">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h2 class="font-display text-2xl font-bold">4. Données personnelles</h2>
+                    </div>
+                    <div class="space-y-4 text-slate leading-relaxed">
+                        <p>Le site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Le formulaire de
+                            contact utilise le service <strong class="text-charcoal">Formspree</strong>.</p>
+                        <div class="bg-beige rounded-2xl p-6">
+                            <h3 class="font-bold text-charcoal mb-3 flex items-center gap-2">
+                                <i class="fas fa-info-circle text-lavender"></i>
+                                Données collectées via le formulaire
+                            </h3>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-check text-mint mr-2"></i>Nom et prénom</li>
+                                <li><i class="fas fa-check text-mint mr-2"></i>Adresse e-mail</li>
+                                <li><i class="fas fa-check text-mint mr-2"></i>Message de contact</li>
+                            </ul>
+                        </div>
+                        <p>Les données transmises sont uniquement destinées à répondre à vos demandes professionnelles
+                            et <strong class="text-charcoal">ne sont jamais cédées à des tiers</strong>. Conformément au
+                            RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+                            Pour exercer ce droit, contactez-nous à l'adresse e-mail mentionnée ci-dessus.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-coral/20 flex items-center justify-center text-coral text-xl">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h2 class="font-display text-2xl font-bold">5. Cookies</h2>
+                    </div>
+                    <div class="text-slate leading-relaxed">
+                        <p>Ce site n'utilise <strong class="text-charcoal">aucun cookie</strong> de suivi ou de
+                            tracking. Aucune donnée de navigation n'est enregistrée ou analysée.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-lavender/10 to-sky/10 rounded-3xl p-8 lg:p-10 shadow-lg reveal text-center">
+                    <i class="fas fa-question-circle text-4xl text-lavender mb-4"></i>
+                    <h3 class="font-display text-2xl font-bold mb-3">Une question ?</h3>
+                    <p class="text-slate mb-6">N'hésitez pas à me contacter pour toute question concernant ces mentions
+                        légales.</p>
+                    <a href="mailto:Kylian-giard@outlook.fr"
+                        class="inline-flex items-center gap-2 bg-charcoal text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform">
+                        <i class="fas fa-envelope"></i>
+                        Me contacter
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 lg:px-8 bg-charcoal text-white relative z-10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-white/60 mb-4">© 2026 Kylian Giard Ouadifi. Tous droits réservés.</p>
+            <a href="index.html" class="text-white/40 hover:text-white/60 text-sm transition-colors underline">
+                Retour au portfolio
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
