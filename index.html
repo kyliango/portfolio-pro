@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kylian Giard Ouadifi | Développeur Web & UX/UI Designer</title>
-<meta name="description" content="Portfolio de Kylian Giard Ouadifi, étudiant en BUT MMI. Développeur Fullstack spécialisé en React, Next.js et Design UI/UX. Recherche stage de 12 semaines dès le 7 avril 2026.">
-<meta name="keywords" content="Développeur Web, UX/UI Design, Fullstack, React, Next.js, PHP, Portfolio MMI, Kylian Giard Ouadifi, Stage 2026, IUT Bobigny">
-<meta name="author" content="Kylian Giard Ouadifi">
+    <meta name="description"
+        content="Portfolio de Kylian Giard Ouadifi, étudiant en BUT MMI. Développeur Fullstack spécialisé en React, Next.js et Design UI/UX.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
             theme: {
@@ -20,402 +19,564 @@
                         display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#6366f1', 
-                        secondary: '#ec4899', 
-                        dark: '#0f172a', 
-                        card: '#1e293b', 
+                        cream: '#FAFAF8', beige: '#F5F3EF', sand: '#E8E4DD',
+                        charcoal: '#2B2B2B', slate: '#64748B',
+                        lavender: '#A78BFA', mint: '#86EFAC',
+                        peach: '#FDBA74', sky: '#7DD3FC', coral: '#F87171',
                     },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
                 }
             }
         }
     </script>
-    <style>
-        .gradient-text {
-            background: linear-gradient(to right, #6366f1, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-        /* Timeline line */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 20px;
-            width: 2px;
-            background: #334155;
-            z-index: 0;
-        }
-        .progress-bar { width: 0; transition: width 1.5s ease-out; }
-        /* Project Cards Hover Effects */
-        .project-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card.hidden-card { display: none; }
-        
-        .filter-btn.active { background-color: #6366f1; color: white; border-color: #6366f1; }
-        
-        /* Custom Scrollbar for modals */
-        .modal-content::-webkit-scrollbar { width: 8px; }
-        .modal-content::-webkit-scrollbar-track { background: #0f172a; }
-        .modal-content::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        .modal-content::-webkit-scrollbar-thumb:hover { background: #475569; }
-    </style>
 </head>
-<body class="bg-dark text-slate-300 font-sans antialiased overflow-x-hidden relative">
 
-    <!-- Background Elements -->
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" style="animation-delay: 2s"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" style="animation-delay: 4s"></div>
-    </div>
+<body class="font-sans antialiased text-charcoal overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-700/50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                    <a href="#" class="font-display text-2xl font-bold text-white tracking-wider">KGO<span class="text-primary">.</span></a>
+    <nav class="fixed w-full z-50 bg-cream/80 backdrop-blur-md border-b border-sand/50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="font-display text-2xl font-bold tracking-tight hover:scale-105 transition-transform">
+                    KGO<span class="text-lavender">.</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="text-slate hover:text-charcoal font-medium transition-colors">À propos</a>
+                    <a href="#work" class="text-slate hover:text-charcoal font-medium transition-colors">Projets</a>
+                    <a href="#skills"
+                        class="text-slate hover:text-charcoal font-medium transition-colors">Compétences</a>
+                    <a href="#contact"
+                        class="bg-charcoal text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-all hover:scale-105">
+                        Contact
+                    </a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-1">
-                        <a href="#accueil" class="hover:text-white hover:bg-slate-800/30 px-4 py-2 rounded-full text-sm font-medium transition-all">Accueil</a>
-                        <a href="#apropos" class="hover:text-white hover:bg-slate-800/30 px-4 py-2 rounded-full text-sm font-medium transition-all">À Propos</a>
-                        <a href="#competences" class="hover:text-white hover:bg-slate-800/30 px-4 py-2 rounded-full text-sm font-medium transition-all">Compétences</a>
-                        <a href="#projets" class="hover:text-white hover:bg-slate-800/30 px-4 py-2 rounded-full text-sm font-medium transition-all">Projets</a>
-                        <a href="#contact" class="ml-4 bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/50 text-white px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:-translate-y-0.5">Me contacter</a>
-                    </div>
-                </div>
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none transition-colors">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-slate-700 absolute w-full transition-all duration-300 ease-in-out origin-top transform">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#accueil" onclick="toggleMobileMenu()" class="text-white block px-3 py-2 rounded-md text-base bg-slate-800">Accueil</a>
-                <a href="#apropos" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base">À Propos</a>
-                <a href="#competences" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base">Compétences</a>
-                <a href="#projets" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base">Projets</a>
-                <a href="#contact" onclick="toggleMobileMenu()" class="text-white bg-gradient-to-r from-primary to-secondary block px-3 py-2 rounded-md text-base font-bold mt-4">Me contacter</a>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- SECTION 1: ACCUEIL -->
-    <section id="accueil" class="min-h-screen flex items-center justify-center pt-20 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-12">
-            <div class="md:w-1/2 text-center md:text-left animate-fade-in-up">
-                <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full border border-primary/20 animate-pulse-slow">
-                    Étudiant MMI • Recherche Stage & Alternance 2026
-                </div>
-                <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight">
-                    Je conçois le <br>
-                    <span class="gradient-text typing-cursor" id="typewriter"></span>
-                </h1>
-                <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                    Développeur Fullstack & Designer UX/UI en BUT2 MMI à l'IUT de Bobigny, spécialisé développement web et design d'interfaces.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#projets" class="group relative px-8 py-3 bg-white text-dark font-bold rounded-full overflow-hidden transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">
-                        <span class="relative z-10 group-hover:text-primary transition-colors">Voir mes projets</span>
-                    </a>
-                    <a href="cvfinal.pdf" download class="group px-8 py-3 border border-slate-600 text-slate-300 rounded-full hover:border-primary hover:text-white hover:bg-primary/10 transition-all flex items-center justify-center gap-2">
-                        <i class="fas fa-download group-hover:translate-y-1 transition-transform"></i> Télécharger CV
-                    </a>
-                </div>
-                <div class="mt-12 flex items-center justify-center md:justify-start gap-8 border-t border-slate-800 pt-8">
-                    <div class="text-center md:text-left">
-                        <span class="block text-2xl font-bold text-white">2+</span>
-                        <span class="text-xs text-slate-500 uppercase tracking-wide">Années d'études</span>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <span class="block text-2xl font-bold text-white">5+</span>
-                        <span class="text-xs text-slate-500 uppercase tracking-wide">Projets</span>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <span class="block text-2xl font-bold text-white">100%</span>
-                        <span class="text-xs text-slate-500 uppercase tracking-wide">Passionné</span>
-                    </div>
-                </div>
+    <div id="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+    <div id="mobile-menu-panel">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-display text-xl font-bold">Menu</span>
+                <button onclick="toggleMobileMenu()"
+                    class="w-10 h-10 rounded-full bg-sand flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="md:w-1/2 flex justify-center relative reveal delay-200">
-                <div class="relative w-72 h-72 md:w-[28rem] md:h-[28rem] group cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-primary via-purple-500 to-secondary rounded-[2rem] opacity-70 blur-2xl group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
-                    <div class="relative w-full h-full rounded-[2rem] overflow-hidden border-2 border-slate-700/50 backdrop-blur-sm bg-slate-800/50 z-10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]">
-                        <img src="IMG_3136.jpeg" alt="Kylian Giard Ouadifi" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur border border-slate-700 p-4 rounded-2xl shadow-2xl z-20 flex items-center gap-3 animate-bounce" style="animation-duration: 4s;">
-                        <div class="bg-blue-500/20 p-2 rounded-lg text-blue-400"><i class="fas fa-code"></i></div>
-                        <div><p class="text-xs text-slate-400">Expertise</p><p class="font-bold text-white text-sm">Développeur Web</p></div>
-                    </div>
-                    <div class="absolute top-8 -right-8 bg-card/90 backdrop-blur border border-slate-700 p-4 rounded-2xl shadow-2xl z-20 flex items-center gap-3 animate-bounce" style="animation-duration: 5s;">
-                        <div class="bg-pink-500/20 p-2 rounded-lg text-pink-400"><i class="fas fa-paint-brush"></i></div>
-                        <div><p class="text-xs text-slate-400">Expertise</p><p class="font-bold text-white text-sm">UX/UI Designer</p></div>
-                    </div>
+            <nav class="space-y-2">
+                <a href="#" onclick="toggleMobileMenu()"
+                    class="block py-3 px-4 rounded-xl font-semibold text-charcoal bg-sand">Accueil</a>
+                <a href="#about" onclick="toggleMobileMenu()"
+                    class="block py-3 px-4 rounded-xl text-slate hover:bg-sand hover:text-charcoal transition">À
+                    propos</a>
+                <a href="#work" onclick="toggleMobileMenu()"
+                    class="block py-3 px-4 rounded-xl text-slate hover:bg-sand hover:text-charcoal transition">Projets</a>
+                <a href="#skills" onclick="toggleMobileMenu()"
+                    class="block py-3 px-4 rounded-xl text-slate hover:bg-sand hover:text-charcoal transition">Compétences</a>
+                <a href="#contact" onclick="toggleMobileMenu()"
+                    class="block py-3 px-4 rounded-xl text-white bg-charcoal font-semibold mt-4">Contact</a>
+            </nav>
+            <div class="mt-8 pt-8 border-t border-sand">
+                <div class="flex gap-3">
+                    <a href="https://github.com/kyliango" target="_blank"
+                        class="w-12 h-12 rounded-full bg-charcoal text-white flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank"
+                        class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- SECTION 2: À PROPOS -->
-    <section id="apropos" class="py-24 relative z-10 bg-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl font-display font-bold text-white mb-4">Qui suis-je ?</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg">Au-delà du code, je suis un créateur passionné par l'expérience utilisateur.</p>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="space-y-12">
-                    <div class="bg-card/50 backdrop-blur p-8 rounded-2xl border border-slate-700 reveal hover:border-primary/30 transition-colors duration-300">
-                        <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-                            <span class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary mr-3 text-sm"><i class="fas fa-user"></i></span>
-                            Mon Profil
-                        </h3>
-                        <p class="text-slate-400 mb-4 leading-relaxed">
-                            J'ai 20 ans et je vis à <span class="text-white font-medium">Courbevoie (92)</span>. Actuellement en deuxième année de BUT MMI à l'IUT de Bobigny, je me spécialise dans le développement web Fullstack et le design d'interface.
-                        </p>
-                        <p class="text-slate-400 leading-relaxed">
-                            Ce qui me motive ? Trouver le point d'équilibre parfait entre une esthétique soignée et un code propre et performant.
-                        </p>
+    <section class="pt-32 pb-20 px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
+
+                <div
+                    class="lg:col-span-7 bg-white rounded-3xl p-8 lg:p-12 shadow-lg reveal transform-3d card-gradient-animate">
+                    <div
+                        class="inline-flex items-center gap-2 bg-mint/20 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 glow-effect">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse icon-scale-rotate"></span>
+                        Disponible pour stage & alternance 2026
                     </div>
-                    <div class="reveal">
-                        <h3 class="text-xl font-bold text-white mb-6">Ce que j'aime</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                            <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50 hover:border-primary/50 hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1"><i class="fas fa-camera text-2xl text-secondary mb-2"></i><p class="text-sm font-medium text-white">Photo</p></div>
-                            <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50 hover:border-primary/50 hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1"><i class="fas fa-user-ninja text-2xl text-primary mb-2"></i><p class="text-sm font-medium text-white">Boxe Thaï</p></div>
-                            <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50 hover:border-primary/50 hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1"><i class="fas fa-plane text-2xl text-green-400 mb-2"></i><p class="text-sm font-medium text-white">Voyage</p></div>
-                            <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50 hover:border-primary/50 hover:bg-slate-800 transition-all duration-300 transform hover:-translate-y-1"><i class="fas fa-music text-2xl text-yellow-400 mb-2"></i><p class="text-sm font-medium text-white">Musique</p></div>
+                    <h1 class="font-display text-5xl lg:text-7xl font-bold leading-tight mb-6">
+                        Je conçois des
+                        <span class="block gradient-text">
+                            expériences digitales
+                        </span>
+                    </h1>
+                    <p class="text-xl text-slate leading-relaxed mb-8 max-w-2xl">
+                        Développeur Fullstack & Designer UX/UI en BUT2 MMI à l'IUT de Bobigny.
+                        Je crée des interfaces élégantes et performantes.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#work"
+                            class="bg-charcoal text-white px-8 py-4 rounded-full font-semibold magnetic-btn inline-flex items-center gap-2 rotate-on-hover glow-effect">
+                            Voir mes projets
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="cvfinal.pdf" download
+                            class="border-2 border-charcoal text-charcoal px-8 py-4 rounded-full font-semibold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2 magnetic-btn rotate-on-hover">
+                            <i class="fas fa-download"></i>
+                            Télécharger CV
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-5 bg-gradient-to-br from-lavender/20 to-sky/20 rounded-3xl overflow-hidden shadow-lg reveal h-[400px] lg:h-auto relative group transform-3d glow-effect">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent z-10"></div>
+                    <img src="IMG_3136.jpeg" alt="Kylian Giard Ouadifi"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute bottom-8 left-8 z-20 text-white">
+                        <p class="text-sm font-semibold mb-1 opacity-80">Kylian Giard Ouadifi</p>
+                        <p class="font-display text-2xl font-bold">Développeur & Designer</p>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-4 bg-gradient-to-br from-peach/30 to-coral/20 rounded-3xl p-8 shadow-lg reveal transform-3d glow-effect">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-2xl mb-4 float-animation icon-scale-rotate">
+                        🔍
+                    </div>
+                    <p class="text-sm font-semibold text-orange-900 mb-2">Actuellement</p>
+                    <h3 class="font-display text-xl font-bold text-charcoal mb-3">Recherche de stage</h3>
+                    <p class="text-slate text-sm">12 semaines à partir d'avril 2026 • Développement Web / UX UI Design
+                    </p>
+                </div>
+
+                <div class="lg:col-span-4 bg-white rounded-3xl p-8 shadow-lg reveal transform-3d card-gradient-animate">
+                    <div class="space-y-6">
+                        <div class="text-center">
+                            <div class="font-display text-5xl font-bold text-charcoal">2+</div>
+                            <p class="text-slate mt-1 text-sm">Années d'études</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-display text-5xl font-bold text-charcoal">5+</div>
+                            <p class="text-slate mt-1 text-sm">Projets réalisés</p>
                         </div>
                     </div>
                 </div>
-                <!-- Timeline -->
-                <div class="relative timeline-line pl-2 space-y-12 reveal delay-100">
-                    
-                    <!-- Stage Future -->
-                    <div class="relative pl-12 group hover:transform hover:translate-x-1 transition-transform">
-                        <div class="absolute left-3 top-1 w-4 h-4 rounded-full bg-dark border-2 border-green-500 animate-pulse z-10"></div>
-                        <span class="inline-block px-2 py-1 text-xs font-bold text-green-400 bg-green-400/10 rounded mb-2">8-12 semaines à partir du 6 avril & septembre 2026</span>
-                        <h4 class="text-xl font-bold text-white group-hover:text-green-400 transition-colors">Recherche de Stage & d'Alternance</h4>
-                        <p class="text-slate-500 text-sm mb-2">Stage en entreprise</p>
-                        <p class="text-slate-400">Développement Web / UX UI Design. Prêt à appliquer mes compétences en entreprise.</p>
+
+                <div
+                    class="lg:col-span-4 bg-gradient-to-br from-sky/20 to-lavender/20 rounded-3xl p-8 shadow-lg reveal flex flex-col justify-center transform-3d glow-effect">
+                    <i class="fas fa-map-marker-alt text-4xl text-blue-600 mb-4"></i>
+                    <p class="text-sm text-slate mb-2">Basé à</p>
+                    <p class="font-display text-2xl font-bold text-charcoal">Courbevoie, 92</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">À propos de moi</h2>
+                <p class="text-xl text-slate max-w-2xl mx-auto">Développeur passionné par le design et l'expérience
+                    utilisateur</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-lavender/20 flex items-center justify-center text-lavender text-2xl mb-6">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Mon Profil</h3>
+                    <p class="text-slate leading-relaxed mb-4">
+                        J'ai <strong class="text-charcoal">20 ans</strong> et je vis à Courbevoie (92). Actuellement en
+                        deuxième année de
+                        <strong class="text-charcoal">BUT MMI à l'IUT de Bobigny</strong>, je me spécialise dans le
+                        développement web Fullstack et le design d'interface.
+                    </p>
+                    <p class="text-slate leading-relaxed">
+                        Ce qui me motive ? Trouver le <strong class="text-charcoal">point d'équilibre parfait</strong>
+                        entre une esthétique soignée et un code propre et performant.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
+                    <h3 class="font-display text-2xl font-bold mb-6">Ce que j'aime</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="bg-sky/10 rounded-2xl p-6 text-center transition-transform cursor-pointer transform-3d bounce-on-hover">
+                            <i class="fas fa-camera text-3xl text-sky-600 mb-3 icon-bounce"></i>
+                            <p class="font-semibold text-charcoal">Photo</p>
+                        </div>
+                        <div
+                            class="bg-lavender/10 rounded-2xl p-6 text-center transition-transform cursor-pointer transform-3d bounce-on-hover">
+                            <i class="fas fa-user-ninja text-3xl text-lavender mb-3 icon-bounce"></i>
+                            <p class="font-semibold text-charcoal">Boxe Thaï</p>
+                        </div>
+                        <div
+                            class="bg-mint/10 rounded-2xl p-6 text-center hover:scale-105 transition-transform cursor-pointer">
+                            <i class="fas fa-plane text-3xl text-green-600 mb-3"></i>
+                            <p class="font-semibold text-charcoal">Voyage</p>
+                        </div>
+                        <div
+                            class="bg-peach/10 rounded-2xl p-6 text-center hover:scale-105 transition-transform cursor-pointer">
+                            <i class="fas fa-music text-3xl text-orange-600 mb-3"></i>
+                            <p class="font-semibold text-charcoal">Musique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white rounded-3xl p-8 lg:p-12 shadow-lg reveal">
+                <h3 class="font-display text-2xl font-bold mb-8">Mon Parcours</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-6 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-mint/20 text-green-600 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="inline-block bg-mint/20 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                                Avril & Septembre 2026
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Recherche Stage & Alternance
+                            </h4>
+                            <p class="text-slate text-sm mb-2">8-12 semaines</p>
+                            <p class="text-slate">Développement Web / UX UI Design. Prêt à appliquer mes compétences en
+                                entreprise.</p>
+                        </div>
                     </div>
 
-                    <!-- BUT MMI -->
-                    <div class="relative pl-12 group hover:transform hover:translate-x-1 transition-transform">
-                        <div class="absolute left-3 top-1 w-4 h-4 rounded-full bg-slate-700 border-2 border-slate-500 group-hover:bg-primary group-hover:border-primary transition-colors z-10"></div>
-                        <span class="inline-block px-2 py-1 text-xs font-bold text-primary bg-primary/10 rounded mb-2">2024 - Présent</span>
-                        <h4 class="text-xl font-bold text-white group-hover:text-primary transition-colors">BUT MMI (2ème année)</h4>
-                        <p class="text-slate-500 text-sm mb-2">IUT de Bobigny</p>
-                        <p class="text-slate-400">Métiers du Multimédia et de l'Internet. Spécialisation Dev & Design.</p>
+                    <div class="flex gap-6 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-lavender/20 text-lavender flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="inline-block bg-lavender/20 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                                2024 - Présent
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">BUT MMI (2ème année)</h4>
+                            <p class="text-slate text-sm mb-2">IUT de Bobigny</p>
+                            <p class="text-slate">Métiers du Multimédia et de l'Internet. Spécialisation Dev & Design.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- BUT Info -->
-                    <div class="relative pl-12 group hover:transform hover:translate-x-1 transition-transform">
-                        <div class="absolute left-3 top-1 w-4 h-4 rounded-full bg-slate-700 border-2 border-slate-500 group-hover:bg-secondary group-hover:border-secondary transition-colors z-10"></div>
-                        <span class="inline-block px-2 py-1 text-xs font-bold text-secondary bg-secondary/10 rounded mb-2">Sept 2023 - Jan 2024</span>
-                        <h4 class="text-xl font-bold text-white group-hover:text-secondary transition-colors">Début BUT Informatique</h4>
-                        <p class="text-slate-500 text-sm mb-2">IUT Paris Rives de Seine</p>
-                        <p class="text-slate-400">Semestre initial en informatique pure avant réorientation vers MMI.</p>
+                    <div class="flex gap-6 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-sky/20 text-sky-600 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="inline-block bg-sky/20 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                                Sept 2023 - Jan 2024
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Début BUT Informatique</h4>
+                            <p class="text-slate text-sm mb-2">IUT Paris Rives de Seine</p>
+                            <p class="text-slate">Semestre initial en informatique pure avant réorientation vers MMI.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- BAC -->
-                    <div class="relative pl-12 group hover:transform hover:translate-x-1 transition-transform">
-                        <div class="absolute left-3 top-1 w-4 h-4 rounded-full bg-slate-700 border-2 border-slate-500 group-hover:bg-white transition-colors z-10"></div>
-                        <span class="inline-block px-2 py-1 text-xs font-bold text-white bg-slate-700 rounded mb-2">2021 - 2023</span>
-                        <h4 class="text-xl font-bold text-white">Bac STI2D option SIN</h4>
-                        <p class="text-slate-500 text-sm mb-2">Lycée Agora, Puteaux</p>
-                        <p class="text-slate-400">Obtenu avec Mention Assez Bien. Option Systèmes d'Information et Numérique.</p>
+                    <div class="flex gap-6 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-sand text-charcoal flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="inline-block bg-sand text-charcoal px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                                2021 - 2023
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Bac STI2D option SIN</h4>
+                            <p class="text-slate text-sm mb-2">Lycée Agora, Puteaux</p>
+                            <p class="text-slate">Obtenu avec Mention Assez Bien.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: COMPÉTENCES -->
-    <section id="competences" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" class="py-20 px-6 lg:px-8 bg-gradient-to-b from-beige to-cream relative z-10">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl font-display font-bold text-white mb-4">Mon <span class="gradient-text">Arsenal</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Une combinaison technique et créative.</p>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">Compétences</h2>
+                <p class="text-xl text-slate max-w-2xl mx-auto">Une combinaison technique et créative</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Dev -->
-                <div class="bg-card/50 backdrop-blur p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-colors reveal duration-500 hover:shadow-lg hover:shadow-primary/10">
-                    <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center mb-6 text-primary text-2xl border border-slate-700 shadow-lg"><i class="fas fa-code"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-6">Développement</h3>
-                    <div class="space-y-5">
-                        <div><div class="flex justify-between mb-1"><span class="text-sm font-medium text-slate-300">HTML / CSS / Tailwind</span><span class="text-xs text-primary font-bold">90%</span></div><div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div class="bg-primary h-2 rounded-full progress-bar" data-width="90%"></div></div></div>
-                        <div><div class="flex justify-between mb-1"><span class="text-sm font-medium text-slate-300">React.js & Next.js</span><span class="text-xs text-primary font-bold">75%</span></div><div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div class="bg-primary h-2 rounded-full progress-bar" data-width="75%"></div></div></div>
-                        <div><div class="flex justify-between mb-1"><span class="text-sm font-medium text-slate-300">PHP & MySQL</span><span class="text-xs text-primary font-bold">70%</span></div><div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div class="bg-primary h-2 rounded-full progress-bar" data-width="70%"></div></div></div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-lavender/20 flex items-center justify-center text-lavender text-2xl mb-6">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6">Développement</h3>
+                    <div class="space-y-3">
+                        <div
+                            class="skill-card bg-lavender/10 rounded-xl p-4 hover:bg-lavender/20 transition cursor-pointer">
+                            <span class="font-semibold text-charcoal">HTML / CSS / Tailwind</span>
+                        </div>
+                        <div class="skill-card bg-sky/10 rounded-xl p-4 hover:bg-sky/20 transition cursor-pointer">
+                            <span class="font-semibold text-charcoal">React.js & Next.js</span>
+                        </div>
+                        <div class="skill-card bg-mint/10 rounded-xl p-4 hover:bg-mint/20 transition cursor-pointer">
+                            <span class="font-semibold text-charcoal">PHP & MySQL</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Design -->
-                <div class="bg-card/50 backdrop-blur p-8 rounded-2xl border border-slate-700 hover:border-secondary/50 transition-colors reveal delay-100 hover:shadow-lg hover:shadow-secondary/10">
-                    <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center mb-6 text-secondary text-2xl border border-slate-700 shadow-lg"><i class="fas fa-pen-nib"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-6">Design UI/UX</h3>
-                    <div class="space-y-5">
-                        <div><div class="flex justify-between mb-1"><span class="text-sm font-medium text-slate-300">Figma</span><span class="text-xs text-secondary font-bold">85%</span></div><div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div class="bg-secondary h-2 rounded-full progress-bar" data-width="85%"></div></div></div>
-                        <div><div class="flex justify-between mb-1"><span class="text-sm font-medium text-slate-300">Adobe Suite</span><span class="text-xs text-secondary font-bold">65%</span></div><div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div class="bg-secondary h-2 rounded-full progress-bar" data-width="65%"></div></div></div>
-                        <div><div class="flex justify-between mb-1"><span class="text-sm font-medium text-slate-300">Prototypage</span><span class="text-xs text-secondary font-bold">80%</span></div><div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden"><div class="bg-secondary h-2 rounded-full progress-bar" data-width="80%"></div></div></div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-sky/20 flex items-center justify-center text-sky-600 text-2xl mb-6">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6">Design UI/UX</h3>
+                    <div class="space-y-3">
+                        <div
+                            class="skill-card bg-lavender/10 rounded-xl p-4 hover:bg-lavender/20 transition cursor-pointer">
+                            <span class="font-semibold text-charcoal">Figma</span>
+                        </div>
+                        <div class="skill-card bg-peach/10 rounded-xl p-4 hover:bg-peach/20 transition cursor-pointer">
+                            <span class="font-semibold text-charcoal">Adobe Suite</span>
+                        </div>
+                        <div class="skill-card bg-sky/10 rounded-xl p-4 hover:bg-sky/20 transition cursor-pointer">
+                            <span class="font-semibold text-charcoal">Prototypage</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Soft Skills -->
-                <div class="bg-card/50 backdrop-blur p-8 rounded-2xl border border-slate-700 hover:border-white/50 transition-colors reveal delay-200 hover:shadow-lg hover:shadow-white/5">
-                    <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center mb-6 text-white text-2xl border border-slate-700 shadow-lg"><i class="fas fa-layer-group"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-6">Outils & Soft Skills</h3>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-3 py-1 bg-slate-800 rounded border border-slate-600 text-xs text-slate-300">Git / GitHub</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded border border-slate-600 text-xs text-slate-300">VS Code</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded border border-slate-600 text-xs text-slate-300">Notion</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded border border-slate-600 text-xs text-slate-300">Trello</span>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-mint/20 flex items-center justify-center text-green-600 text-2xl mb-6">
+                        <i class="fas fa-layer-group"></i>
                     </div>
+                    <h3 class="font-display text-2xl font-bold mb-6">Soft Skills</h3>
                     <ul class="space-y-3">
-                        <li class="flex items-center text-slate-400 text-sm"><i class="fas fa-check text-green-500 mr-3"></i> Méthodologie Agile</li>
-                        <li class="flex items-center text-slate-400 text-sm"><i class="fas fa-check text-green-500 mr-3"></i> Travail d'équipe</li>
-                        <li class="flex items-center text-slate-400 text-sm"><i class="fas fa-check text-green-500 mr-3"></i> Autonomie & Curiosité</li>
+                        <li class="flex items-center text-slate bg-mint/10 rounded-xl p-4">
+                            <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i>
+                            <span class="font-medium">Méthodologie Agile</span>
+                        </li>
+                        <li class="flex items-center text-slate bg-lavender/10 rounded-xl p-4">
+                            <i class="fas fa-check-circle text-lavender mr-3 text-xl"></i>
+                            <span class="font-medium">Travail d'équipe</span>
+                        </li>
+                        <li class="flex items-center text-slate bg-sky/10 rounded-xl p-4">
+                            <i class="fas fa-check-circle text-sky-600 mr-3 text-xl"></i>
+                            <span class="font-medium">Autonomie & Curiosité</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SECTION 4: PROJETS -->
-    <section id="projets" class="py-24 relative z-10 bg-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header Centered on Mobile Fix -->
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 reveal text-center md:text-left">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">Mes <span class="gradient-text">Réalisations</span></h2>
-                    <p class="text-slate-400">Une sélection de mes meilleurs travaux académiques et personnels.</p>
-                </div>
-                <!-- Filters -->
-                <div class="flex gap-2">
-                    <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-full border border-slate-700 text-sm font-medium transition-all hover:bg-slate-700 text-white">Tout</button>
-                    <button onclick="filterProjects('dev')" class="filter-btn px-4 py-2 rounded-full border border-slate-700 text-sm font-medium transition-all hover:bg-slate-700 text-white">Développement</button>
-                    <button onclick="filterProjects('design')" class="filter-btn px-4 py-2 rounded-full border border-slate-700 text-sm font-medium transition-all hover:bg-slate-700 text-white">Design UI/UX</button>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Projet 1 -->
-                <div class="project-card group bg-card rounded-xl overflow-hidden border border-slate-700 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 cursor-pointer reveal" data-category="dev design" onclick="openModal('modal-ecodash')">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="EcoTrack" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+            <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-lg reveal">
+                <h3 class="font-display text-2xl font-bold mb-8 text-center">Mes Outils Favoris</h3>
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
+                    <div
+                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
+                        <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+                        <span class="text-xs font-semibold text-charcoal">Git</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">EcoTrack Dashboard</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">Application web de visualisation d'empreinte carbone pour étudiants.</p>
-                        <span class="inline-flex items-center text-primary font-semibold hover:underline">Détails <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i></span>
+                    <div
+                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
+                        <i class="fab fa-github text-4xl text-charcoal mb-2"></i>
+                        <span class="text-xs font-semibold text-charcoal">GitHub</span>
                     </div>
-                </div>
-                <!-- Projet 2 -->
-                <div class="project-card group bg-card rounded-xl overflow-hidden border border-slate-700 hover:shadow-2xl hover:shadow-secondary/20 hover:border-secondary/50 cursor-pointer reveal delay-100" data-category="dev" onclick="openModal('modal-cinematch')">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80" alt="CinéMatch" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <div
+                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
+                        <i class="fas fa-code text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-xs font-semibold text-charcoal">VS Code</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">CinéMatch AI</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">Recommandation de films par humeur via API TMDB.</p>
-                        <span class="inline-flex items-center text-secondary font-semibold hover:underline">Détails <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i></span>
+                    <div
+                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
+                        <i class="fab fa-figma text-4xl text-purple-600 mb-2"></i>
+                        <span class="text-xs font-semibold text-charcoal">Figma</span>
                     </div>
-                </div>
-                <!-- Projet 3 -->
-                <div class="project-card group bg-card rounded-xl overflow-hidden border border-slate-700 hover:shadow-2xl hover:shadow-white/10 hover:border-slate-500 cursor-pointer reveal delay-200" data-category="dev" onclick="openModal('modal-restoconnect')">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="RestoConnect" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <div
+                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
+                        <i class="fas fa-tasks text-4xl text-red-600 mb-2"></i>
+                        <span class="text-xs font-semibold text-charcoal">Notion</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-slate-200 transition-colors">RestoConnect</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">Plateforme d'administration de menus pour restaurateurs.</p>
-                        <span class="inline-flex items-center text-white font-semibold hover:underline">Détails <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i></span>
+                    <div
+                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
+                        <i class="fas fa-clipboard-list text-4xl text-green-600 mb-2"></i>
+                        <span class="text-xs font-semibold text-charcoal">Trello</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: CONTACT -->
-    <section id="contact" class="py-24 relative z-10">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="bg-card border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl reveal">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-display font-bold text-white mb-4">Contactez <span class="text-primary">Moi !</span></h2>
-                    <p class="text-slate-400">Pour une offre de stage ou juste pour dire bonjour.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="space-y-8 flex flex-col justify-center">
-                        <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-primary/50 transition-all group">
-                            <p class="text-sm text-slate-500 mb-1">Email</p>
-                            <div class="flex items-center justify-between">
-                                <a href="mailto:Kylian-giard@outlook.fr" class="text-lg font-bold text-white group-hover:text-primary transition-colors">Kylian-giard@outlook.fr</a>
-                                <button onclick="copyEmail()" class="text-slate-400 hover:text-white bg-slate-700 hover:bg-primary p-2 rounded-lg transition-colors" title="Copier"><i class="far fa-copy"></i></button>
-                            </div>
+    <section id="work" class="py-20 px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">Mes Projets</h2>
+                <p class="text-xl text-slate max-w-2xl mx-auto">Une sélection de mes meilleurs travaux</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
+
+                <div class="lg:col-span-7 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
+                    onclick="openModal('modal-ecodash')">
+                    <div class="h-64 lg:h-80 bg-gradient-to-br from-green-100 to-emerald-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80"
+                            alt="EcoTrack"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">UX/UI</span>
+                            <span
+                                class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">Next.js</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank" class="flex-1 bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-secondary/50 text-center transition-all group hover:scale-105">
-                                <i class="fab fa-linkedin-in text-2xl text-secondary mb-2 group-hover:scale-110 transition-transform block"></i>
-                                <span class="text-sm font-bold text-white">LinkedIn</span>
-                            </a>
-                            
-                            <a href="https://github.com/kyliango" target="_blank" class="flex-1 bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-white/50 text-center transition-all group hover:scale-105">
-                                <i class="fab fa-github text-2xl text-white mb-2 group-hover:scale-110 transition-transform block"></i>
-                                <span class="text-sm font-bold text-white">GitHub</span>
-                            </a>
+                        <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-green-600 transition-colors">
+                            EcoTrack Dashboard</h3>
+                        <p class="text-slate leading-relaxed mb-4">App de visualisation d'empreinte carbone avec
+                            gamification.</p>
+                        <div
+                            class="flex items-center text-green-600 font-semibold group-hover:gap-3 gap-2 transition-all">
+                            Voir le projet
+                            <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
-                    <!-- Formulaire : -->
-                    <form id="contactForm" class="space-y-4" action="https://formspree.io/f/meoyplby" method="POST">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase tracking-wider">Nom</label>
-                                <input type="text" name="name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase tracking-wider">Email</label>
-                                <input type="email" name="email" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
-                            </div>
+                </div>
+
+                <div class="lg:col-span-5 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
+                    onclick="openModal('modal-cinematch')">
+                    <div class="h-48 lg:h-64 bg-gradient-to-br from-pink-100 to-purple-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80"
+                            alt="CinéMatch"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">React</span>
+                            <span
+                                class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">API</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-3 group-hover:text-purple-600 transition-colors">
+                            CinéMatch AI</h3>
+                        <p class="text-slate leading-relaxed mb-4">Recommandation de films par humeur via API TMDB.</p>
+                        <div
+                            class="flex items-center text-purple-600 font-semibold group-hover:gap-3 gap-2 transition-all">
+                            Voir le projet
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
+                    onclick="openModal('modal-restoconnect')">
+                    <div class="h-48 lg:h-64 bg-gradient-to-br from-orange-100 to-yellow-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                            alt="RestoConnect"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">MySQL</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-3 group-hover:text-orange-600 transition-colors">
+                            RestoConnect</h3>
+                        <p class="text-slate leading-relaxed mb-4">Plateforme d'administration de menus pour
+                            restaurateurs.</p>
+                        <div
+                            class="flex items-center text-orange-600 font-semibold group-hover:gap-3 gap-2 transition-all">
+                            Voir le projet
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-7 bg-gradient-to-br from-charcoal to-slate-800 rounded-3xl p-8 lg:p-12 shadow-lg reveal flex flex-col justify-center text-white">
+                    <h3 class="font-display text-4xl font-bold mb-4">Un projet en tête ?</h3>
+                    <p class="text-white/80 text-lg mb-8 max-w-xl">Je suis toujours intéressé par de nouvelles
+                        opportunités et collaborations.</p>
+                    <div>
+                        <a href="#contact"
+                            class="inline-block bg-white text-charcoal px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform">
+                            Discutons-en
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 lg:px-8 bg-gradient-to-b from-beige to-cream relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">Restons en contact</h2>
+                <p class="text-xl text-slate">N'hésitez pas à me contacter pour toute opportunité</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="space-y-6 reveal">
+                    <div class="bg-white rounded-3xl p-8 shadow-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-sm text-slate font-semibold">Email</p>
+                            <button onclick="copyEmail()" class="text-slate hover:text-charcoal transition-colors"
+                                title="Copier">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                        <a href="mailto:Kylian-giard@outlook.fr"
+                            class="text-xl font-bold text-charcoal hover:text-lavender transition-colors">
+                            Kylian-giard@outlook.fr
+                        </a>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank"
+                            class="flex-1 bg-blue-600 text-white rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-lg">
+                            <i class="fab fa-linkedin-in text-3xl mb-3"></i>
+                            <p class="font-bold">LinkedIn</p>
+                        </a>
+                        <a href="https://github.com/kyliango" target="_blank"
+                            class="flex-1 bg-charcoal text-white rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-lg">
+                            <i class="fab fa-github text-3xl mb-3"></i>
+                            <p class="font-bold">GitHub</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
+                    <form id="contactForm" action="https://formspree.io/f/meoyplby" method="POST" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-charcoal mb-2">Nom</label>
+                            <input type="text" name="name" required
+                                class="w-full bg-beige border-2 border-transparent rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-lavender transition-colors">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-slate-400 mb-1 uppercase tracking-wider">Message</label>
-                            <textarea rows="4" name="message" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"></textarea>
+                            <label class="block text-sm font-bold text-charcoal mb-2">Email</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-beige border-2 border-transparent rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-lavender transition-colors">
                         </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-primary/20 transform hover:-translate-y-1">
-                            Envoyer le message <i class="fas fa-paper-plane ml-2"></i>
+                        <div>
+                            <label class="block text-sm font-bold text-charcoal mb-2">Message</label>
+                            <textarea rows="4" name="message" required
+                                class="w-full bg-beige border-2 border-transparent rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-lavender transition-colors"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-charcoal text-white font-bold py-4 rounded-xl hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                            Envoyer le message
+                            <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
@@ -423,296 +584,188 @@
         </div>
     </section>
 
-    <!-- MODALS (POP-UPS) -->
-    <!-- EcoDash Modal -->
-    <div id="modal-ecodash" class="fixed inset-0 bg-dark/95 backdrop-blur-md hidden items-center justify-center z-[60] overflow-y-auto p-4 transition-all duration-300 opacity-0" onclick="closeModal('modal-ecodash')">
-        <div class="bg-card w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl overflow-hidden relative my-8 transform scale-95 transition-all duration-300 flex flex-col max-h-[90vh]" onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-ecodash')" class="absolute top-4 right-4 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all z-20"><i class="fas fa-times"></i></button>
-            
-            <div class="h-64 bg-slate-800 flex items-center justify-center flex-shrink-0 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80" alt="EcoTrack" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+    <footer class="py-12 px-6 lg:px-8 bg-charcoal text-white relative z-10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-white/60 mb-4">© 2026 Kylian Giard Ouadifi. Tous droits réservés.</p>
+            <a href="mentions-legales.html"
+                class="text-white/40 hover:text-white/60 text-sm transition-colors underline">
+                Mentions Légales
+            </a>
+        </div>
+    </footer>
+
+    <div id="modal-ecodash"
+        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
+        onclick="closeModal('modal-ecodash')">
+        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-ecodash')"
+                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
+                <i class="fas fa-times text-charcoal"></i>
+            </button>
+            <div class="h-72 bg-gradient-to-br from-green-100 to-emerald-200 relative">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80"
+                    class="w-full h-full object-cover opacity-80">
             </div>
-            
-            <div class="p-8 overflow-y-auto modal-content">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded-full border border-green-500/30">UX/UI</span>
-                    <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded-full border border-green-500/30">Next.js</span>
+            <div class="p-8 lg:p-12">
+                <div class="flex gap-2 mb-4">
+                    <span class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">UX/UI</span>
+                    <span class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">Next.js</span>
                 </div>
-                <h3 class="text-3xl font-display font-bold text-white mb-4">EcoTrack Dashboard</h3>
-                <p class="text-slate-300 mb-6 leading-relaxed text-lg">Une application web interactive conçue pour sensibiliser les étudiants universitaires à leur empreinte carbone quotidienne.</p>
-                
+                <h3 class="font-display text-4xl font-bold mb-4">EcoTrack Dashboard</h3>
+                <p class="text-slate text-lg leading-relaxed mb-8">
+                    Application web interactive conçue pour sensibiliser les étudiants universitaires à leur empreinte
+                    carbone quotidienne.
+                </p>
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <div>
-                        <h4 class="text-white font-bold mb-2 border-b border-slate-700 pb-2">Approche UX/UI</h4>
-                        <p class="text-slate-400 text-sm">Création de personas étudiants pour cibler les besoins précis. Design émotionnel utilisant des teintes vertes apaisantes (psychologie des couleurs) et des micro-interactions satisfaisantes lors de l'accomplissement d'objectifs (gamification).</p>
+                        <h4 class="font-bold text-charcoal mb-2">Approche UX/UI</h4>
+                        <p class="text-slate text-sm">Création de personas étudiants. Design émotionnel avec teintes
+                            vertes apaisantes et micro-interactions gamifiées.</p>
                     </div>
                     <div>
-                        <h4 class="text-white font-bold mb-2 border-b border-slate-700 pb-2">Solution Apportée</h4>
-                        <p class="text-slate-400 text-sm">Création d'un tableau de bord gamifié. Utilisation de graphiques interactifs (Chart.js) pour visualiser les progrès et système de badges pour récompenser les actions écologiques.</p>
+                        <h4 class="font-bold text-charcoal mb-2">Solution Apportée</h4>
+                        <p class="text-slate text-sm">Tableau de bord gamifié avec graphiques interactifs (Chart.js) et
+                            système de badges.</p>
                     </div>
                 </div>
-
-                <h4 class="text-white font-bold mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">Figma (Maquettes)</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">Next.js</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">Tailwind CSS</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">Chart.js</span>
+                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Figma</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Next.js</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Tailwind CSS</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Chart.js</span>
                 </div>
-
                 <div class="flex gap-4">
-                    <a href="https://kyliango.github.io/ecotrack-dashboard/" target="_blank" class="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-indigo-600 transition-colors flex items-center gap-2"><i class="fas fa-external-link-alt"></i> Voir le site</a>
-                    <a href="https://github.com/kyliango/ecotrack-dashboard" target="_blank" class="px-6 py-3 border border-slate-600 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-2"><i class="fab fa-github"></i> Code source</a>
+                    <a href="https://kyliango.github.io/ecotrack-dashboard/" target="_blank"
+                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
+                        <i class="fas fa-external-link-alt"></i>Voir le site
+                    </a>
+                    <a href="https://github.com/kyliango/ecotrack-dashboard" target="_blank"
+                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
+                        <i class="fab fa-github"></i>Code source
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- CineMatch Modal -->
-    <div id="modal-cinematch" class="fixed inset-0 bg-dark/95 backdrop-blur-md hidden items-center justify-center z-[60] overflow-y-auto p-4 transition-all duration-300 opacity-0" onclick="closeModal('modal-cinematch')">
-        <div class="bg-card w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl overflow-hidden relative my-8 transform scale-95 transition-all duration-300 flex flex-col max-h-[90vh]" onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-cinematch')" class="absolute top-4 right-4 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all z-20"><i class="fas fa-times"></i></button>
-            
-            <div class="h-64 bg-slate-800 flex items-center justify-center flex-shrink-0 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80" alt="CinéMatch" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+    <div id="modal-cinematch"
+        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
+        onclick="closeModal('modal-cinematch')">
+        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-cinematch')"
+                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
+                <i class="fas fa-times text-charcoal"></i>
+            </button>
+            <div class="h-72 bg-gradient-to-br from-pink-100 to-purple-200 relative">
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80"
+                    class="w-full h-full object-cover opacity-80">
             </div>
-            
-            <div class="p-8 overflow-y-auto modal-content">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-3 py-1 bg-pink-500/20 text-pink-400 text-xs font-bold rounded-full border border-pink-500/30">API Rest</span>
-                    <span class="px-3 py-1 bg-pink-500/20 text-pink-400 text-xs font-bold rounded-full border border-pink-500/30">React</span>
+            <div class="p-8 lg:p-12">
+                <div class="flex gap-2 mb-4">
+                    <span class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">React</span>
+                    <span class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">API
+                        Rest</span>
                 </div>
-                <h3 class="text-3xl font-display font-bold text-white mb-4">CinéMatch AI</h3>
-                <p class="text-slate-300 mb-6 leading-relaxed text-lg">Une interface de recommandation de films intelligente qui suggère des contenus basés sur l'humeur de l'utilisateur.</p>
-                
+                <h3 class="font-display text-4xl font-bold mb-4">CinéMatch AI</h3>
+                <p class="text-slate text-lg leading-relaxed mb-8">Interface de recommandation de films intelligente
+                    basée sur l'humeur de l'utilisateur via l'API TMDB.</p>
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <div>
-                        <h4 class="text-white font-bold mb-2 border-b border-slate-700 pb-2">Challenge Technique</h4>
-                        <p class="text-slate-400 text-sm">Connecter l'application à l'API massive de TMDB (The Movie Database) et filtrer les résultats de manière performante sans rechargement de page (AJAX/Fetch).</p>
+                        <h4 class="font-bold text-charcoal mb-2">Challenge Technique</h4>
+                        <p class="text-slate text-sm">Connexion à l'API TMDB et filtrage performant sans rechargement de
+                            page (AJAX/Fetch).</p>
                     </div>
                     <div>
-                        <h4 class="text-white font-bold mb-2 border-b border-slate-700 pb-2">Design UI & UX</h4>
-                        <p class="text-slate-400 text-sm">Architecture de l'information simplifiée pour réduire la charge cognitive. Esthétique 'Cinematic' sombre pour l'immersion, avec des transitions de page fluides pour une expérience 'app-like' très réactive.</p>
+                        <h4 class="font-bold text-charcoal mb-2">Design UI & UX</h4>
+                        <p class="text-slate text-sm">Architecture simplifiée, esthétique cinématique sombre avec
+                            transitions fluides.</p>
                     </div>
                 </div>
-
-                <h4 class="text-white font-bold mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">React.js</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">Tailwind CSS</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">API TMDB</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">Adobe XD</span>
+                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">React.js</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Tailwind CSS</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">API TMDB</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Adobe XD</span>
                 </div>
-
                 <div class="flex gap-4">
-                    <a href="https://kyliango.github.io/cinematch-ai/" target="_blank" class="px-6 py-3 bg-secondary text-white font-bold rounded-lg hover:bg-pink-600 transition-colors flex items-center gap-2"><i class="fas fa-external-link-alt"></i> Voir le site</a>
-                    <a href="https://github.com/kyliango/cinematch-ai" target="_blank" class="px-6 py-3 border border-slate-600 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-2"><i class="fab fa-github"></i> Code source</a>
+                    <a href="https://kyliango.github.io/cinematch-ai/" target="_blank"
+                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
+                        <i class="fas fa-external-link-alt"></i>Voir le site
+                    </a>
+                    <a href="https://github.com/kyliango/cinematch-ai" target="_blank"
+                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
+                        <i class="fab fa-github"></i>Code source
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- RestoConnect Modal -->
-    <div id="modal-restoconnect" class="fixed inset-0 bg-dark/95 backdrop-blur-md hidden items-center justify-center z-[60] overflow-y-auto p-4 transition-all duration-300 opacity-0" onclick="closeModal('modal-restoconnect')">
-        <div class="bg-card w-full max-w-4xl rounded-2xl border border-slate-700 shadow-2xl overflow-hidden relative my-8 transform scale-95 transition-all duration-300 flex flex-col max-h-[90vh]" onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-restoconnect')" class="absolute top-4 right-4 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-all z-20"><i class="fas fa-times"></i></button>
-            
-            <div class="h-64 bg-slate-800 flex items-center justify-center flex-shrink-0 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="RestoConnect" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+    <div id="modal-restoconnect"
+        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
+        onclick="closeModal('modal-restoconnect')">
+        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-restoconnect')"
+                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
+                <i class="fas fa-times text-charcoal"></i>
+            </button>
+            <div class="h-72 bg-gradient-to-br from-orange-100 to-yellow-200 relative">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
+                    class="w-full h-full object-cover opacity-80">
             </div>
-            
-            <div class="p-8 overflow-y-auto modal-content">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs font-bold rounded-full border border-orange-500/30">Fullstack</span>
-                    <span class="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs font-bold rounded-full border border-orange-500/30">PHP/MySQL</span>
+            <div class="p-8 lg:p-12">
+                <div class="flex gap-2 mb-4">
+                    <span class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">Fullstack</span>
+                    <span class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">PHP/MySQL</span>
                 </div>
-                <h3 class="text-3xl font-display font-bold text-white mb-4">RestoConnect</h3>
-                <p class="text-slate-300 mb-6 leading-relaxed text-lg">Une solution clé en main pour les restaurateurs : site vitrine côté client et panel d'administration sécurisé côté gérant (Mdp gérant : admin123)</p>
-                
+                <h3 class="font-display text-4xl font-bold mb-4">RestoConnect</h3>
+                <p class="text-slate text-lg leading-relaxed mb-8">Solution clé en main pour restaurateurs : site
+                    vitrine client et panel d'administration sécurisé.</p>
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <div>
-                        <h4 class="text-white font-bold mb-2 border-b border-slate-700 pb-2">UX Admin</h4>
-                        <p class="text-slate-400 text-sm">Interface d'administration pensée pour des utilisateurs novices en informatique. Gros boutons d'action, feedback visuel immédiat (toasts) lors des mises à jour de menu et prévention des erreurs de suppression.</p>
+                        <h4 class="font-bold text-charcoal mb-2">UX Admin</h4>
+                        <p class="text-slate text-sm">Interface pensée pour utilisateurs novices. Gros boutons, feedback
+                            immédiat (toasts) et prévention d'erreurs.</p>
                     </div>
                     <div>
-                        <h4 class="text-white font-bold mb-2 border-b border-slate-700 pb-2">UI & Accessibilité</h4>
-                        <p class="text-slate-400 text-sm">Site conçu "Mobile First" avec une attention particulière aux zones tactiles (touch targets) et aux contrastes de couleurs pour respecter les normes WCAG.</p>
+                        <h4 class="font-bold text-charcoal mb-2">UI & Accessibilité</h4>
+                        <p class="text-slate text-sm">Design Mobile First avec attention aux zones tactiles et
+                            contrastes WCAG.</p>
                     </div>
                 </div>
-
-                <h4 class="text-white font-bold mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">PHP 8</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">MySQL</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">SASS/SCSS</span>
-                    <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded border border-slate-600 text-sm">MVC Pattern</span>
+                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">PHP 8</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">MySQL</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">SASS/SCSS</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">MVC Pattern</span>
                 </div>
-
                 <div class="flex gap-4">
-                    <a href="https://restoconnect.alwaysdata.net/" target="_blank" class="px-6 py-3 bg-white text-dark font-bold rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2"><i class="fas fa-external-link-alt"></i> Voir le site</a>
-                    <a href="https://github.com/kyliango/restoconnect" target="_blank" class="px-6 py-3 border border-slate-600 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-2"><i class="fab fa-github"></i> Code source</a>
+                    <a href="https://restoconnect.alwaysdata.net/" target="_blank"
+                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
+                        <i class="fas fa-external-link-alt"></i>Voir le site
+                    </a>
+                    <a href="https://github.com/kyliango/restoconnect" target="_blank"
+                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
+                        <i class="fab fa-github"></i>Code source
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark border-t border-slate-800 py-8 text-center mt-auto">
-    <div class="flex justify-center gap-6 mb-4">
-        <a href="https://github.com/kyliango" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all transform hover:scale-110"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/kylian-ily%C3%A8s-giard-ouadifi-0a837925b/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-    <div class="space-y-2">
-        <p class="text-slate-500 text-sm">© 2026 Kylian Giard Ouadifi.</p>
-        <a href="mentions-legales.html" class="text-slate-600 hover:text-primary text-xs transition-colors underline decoration-dotted">Mentions Légales</a>
-    </div>
-</footer>
-
-    <!-- Notification -->
-    <div id="notification" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl translate-y-24 transition-transform duration-300 z-50 flex items-center font-bold">
-        <i class="fas fa-check-circle mr-3"></i> <span id="notif-text">Message envoyé !</span>
+    <div id="notification"
+        class="fixed bottom-6 right-6 bg-charcoal text-white px-6 py-4 rounded-2xl shadow-2xl translate-y-32 transition-transform duration-300 z-50 flex items-center font-semibold">
+        <i class="fas fa-check-circle mr-3 text-mint"></i>
+        <span id="notif-text">Message envoyé !</span>
     </div>
 
-    <script>
-        // TYPEWRITER
-        const textToType = "Futur du Web";
-        const typeWriterElement = document.getElementById('typewriter');
-        let i = 0;
-        function typeWriter() {
-            if (i < textToType.length) {
-                typeWriterElement.innerHTML += textToType.charAt(i);
-                i++;
-                setTimeout(typeWriter, 150);
-            }
-        }
-
-        // SCROLL REVEAL & PROGRESS BARS
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    const bars = entry.target.querySelectorAll('.progress-bar');
-                    bars.forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-width');
-                    });
-                }
-            });
-        });
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-        // INIT
-        window.addEventListener("load", () => {
-            setTimeout(typeWriter, 1000);
-        });
-
-        // MENU MOBILE
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-
-        // MODALS
-        function openModal(id) { 
-            const modal = document.getElementById(id);
-            modal.classList.remove('hidden'); 
-            modal.classList.add('flex');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                const inner = modal.querySelector('div');
-                inner.classList.remove('scale-95');
-                inner.classList.add('scale-100');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal(id) { 
-            const modal = document.getElementById(id);
-            modal.classList.add('opacity-0');
-            const inner = modal.querySelector('div');
-            inner.classList.remove('scale-100');
-            inner.classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden'); 
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
-            }, 300);
-        }
-
-        // FILTERS
-        function filterProjects(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            const items = document.querySelectorAll('.project-card');
-            items.forEach(item => {
-                if(category === 'all' || item.dataset.category.includes(category)) {
-                    item.classList.remove('hidden-card');
-                    item.style.opacity = '0';
-                    setTimeout(() => item.style.opacity = '1', 50);
-                } else {
-                    item.classList.add('hidden-card');
-                }
-            });
-        }
-
-        // CONTACT & COPY
-        function copyEmail() {
-            navigator.clipboard.writeText('Kylian.giard@outlook.fr');
-            showNotif('Email copié dans le presse-papier !');
-        }
-      // GESTION DU FORMULAIRE (AJAX)
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const form = document.getElementById('contactForm');
-            const status = document.getElementById('notification');
-            const data = new FormData(event.target);
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-
-            // 1. État de chargement
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
-            submitBtn.disabled = true;
-
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // 2. Succès
-                    showNotif("Message envoyé avec succès !");
-                    form.reset(); 
-                } else {
-                    // 3. Erreur Formspree
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            showNotif(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            showNotif("Oups ! Une erreur est survenue.");
-                        }
-                    });
-                }
-            }).catch(error => {
-                // 4. Erreur Réseau
-                showNotif("Erreur de connexion. Réessayez.");
-            }).finally(() => {
-                // 5. Rétablir le bouton
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-            });
-        }
-
-        document.getElementById('contactForm').addEventListener("submit", handleFormSubmit);
-        function showNotif(msg) {
-            const notif = document.getElementById('notification');
-            document.getElementById('notif-text').innerText = msg;
-            notif.classList.remove('translate-y-24');
-            setTimeout(() => notif.classList.add('translate-y-24'), 3000);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
