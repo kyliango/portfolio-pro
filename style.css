@@ -319,80 +319,85 @@ body::before {
 }
 
 /* ===== DARK MODE ===== */
-html.dark,
+
+/* Fond global */
 html.dark body {
-    background-color: #0f0f0f !important;
+    background-color: #111 !important;
     color: #e8e4dd !important;
 }
 
+/* Navbar */
 html.dark nav {
-    background-color: rgba(15, 15, 15, 0.85) !important;
+    background-color: rgba(15,15,15,0.9) !important;
     border-color: rgba(255,255,255,0.08) !important;
 }
 
+/* Cartes blanches */
 html.dark .bg-white {
-    background-color: #1a1a1a !important;
+    background-color: #1e1e1e !important;
 }
-
 html.dark .card-gradient-animate {
-    background: #1a1a1a !important;
+    background: #1e1e1e !important;
     animation: none !important;
 }
 
-html.dark [class*="bg-cream"] { background-color: #0f0f0f !important; }
-html.dark [class*="bg-beige"] { background-color: #141414 !important; }
-html.dark [class*="bg-sand"]  { background-color: #2a2a2a !important; }
-
-html.dark [class*="bg-gradient-to-b"] {
-    background: linear-gradient(to bottom, #141414, #0f0f0f) !important;
+/* Fonds de section */
+html.dark section {
+    background-color: #111 !important;
+    background-image: none !important;
 }
 
+/* Petites cartes colorées (hors photo) */
+html.dark .lg\:col-span-4,
+html.dark .lg\:col-span-5.bento-card {
+    background: #1e1e1e !important;
+}
+
+/* Textes */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4 {
+    color: #f0ece6 !important;
+}
+html.dark p    { color: #b0aca6; }
+html.dark li   { color: #b0aca6; }
+html.dark strong { color: #f0ece6 !important; }
 html.dark [class*="text-charcoal"] { color: #e8e4dd !important; }
 html.dark [class*="text-slate"]    { color: #9ca3af !important; }
+html.dark [class*="text-green-700"] { color: #6ee7b7 !important; }
+html.dark [class*="text-orange-900"] { color: #fca5a5 !important; }
 
-html.dark h1, html.dark h2, html.dark h3, html.dark h4,
-html.dark p, html.dark li, html.dark span, html.dark label {
-    color: inherit;
-}
+/* Cartes skill / outils */
+html.dark [class*="bg-lavender/10"] { background-color: rgba(167,139,250,0.08) !important; }
+html.dark [class*="bg-sky/10"]      { background-color: rgba(125,211,252,0.08) !important; }
+html.dark [class*="bg-mint/10"]     { background-color: rgba(134,239,172,0.08) !important; }
+html.dark [class*="bg-peach/10"]    { background-color: rgba(253,186,116,0.08) !important; }
+html.dark [class*="bg-charcoal/5"]  { background-color: rgba(255,255,255,0.05) !important; }
+html.dark [class*="bg-charcoal/10"] { background-color: rgba(255,255,255,0.08) !important; }
+html.dark [class*="bg-sand"]        { background-color: #2a2a2a !important; }
+html.dark [class*="bg-green-100"]   { background-color: rgba(134,239,172,0.1) !important; }
+html.dark [class*="bg-mint/20"]     { background-color: rgba(134,239,172,0.1) !important; }
+html.dark [class*="bg-lavender/20"] { background-color: rgba(167,139,250,0.1) !important; }
+html.dark [class*="bg-sky/20"]      { background-color: rgba(125,211,252,0.1) !important; }
 
-html.dark .shadow-lg { box-shadow: 0 4px 24px rgba(0,0,0,0.5) !important; }
-
-html.dark #mobile-menu-panel { background: #1a1a1a !important; }
-
+/* Formulaire */
 html.dark input, html.dark textarea {
     background-color: #252525 !important;
     color: #e8e4dd !important;
+    border-color: rgba(255,255,255,0.1) !important;
 }
+html.dark label { color: #e8e4dd !important; }
 
+/* Bordures */
+html.dark [class*="border-sand"]    { border-color: rgba(255,255,255,0.1) !important; }
+html.dark [class*="border-charcoal"]{ border-color: rgba(255,255,255,0.3) !important; }
+
+/* Menu mobile */
+html.dark #mobile-menu-panel { background: #1e1e1e !important; }
+
+/* Footer */
 html.dark footer { background-color: #0a0a0a !important; }
 
-html.dark [class*="bg-charcoal/5"],
-html.dark [class*="bg-charcoal/10"] {
-    background-color: rgba(255,255,255,0.05) !important;
-}
-
-html.dark [class*="border-sand"] { border-color: rgba(255,255,255,0.1) !important; }
-
-html.dark [class*="from-lavender"],
-html.dark [class*="from-sky"],
-html.dark [class*="from-peach"],
-html.dark [class*="from-green"],
-html.dark [class*="from-pink"],
-html.dark [class*="from-orange"],
-html.dark [class*="from-indigo"],
-html.dark [class*="from-charcoal"] {
-    background: #1e1e1e !important;
-}
-
-html.dark [class*="to-sky"],
-html.dark [class*="to-lavender"],
-html.dark [class*="to-coral"],
-html.dark [class*="to-emerald"],
-html.dark [class*="to-purple"],
-html.dark [class*="to-yellow"],
-html.dark [class*="to-blue"] {
-    background: #1e1e1e !important;
-}
+/* Ombres */
+html.dark .shadow-lg { box-shadow: 0 4px 24px rgba(0,0,0,0.5) !important; }
 
 @media (prefers-reduced-motion: reduce) {
     *,
