@@ -1,3 +1,35 @@
+function toggleDarkMode() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    const icon = document.getElementById('theme-icon');
+    const iconMobile = document.getElementById('theme-icon-mobile');
+    if (isDark) {
+        icon && (icon.className = 'fas fa-sun text-yellow-400');
+        iconMobile && (iconMobile.className = 'fas fa-sun text-yellow-400');
+    } else {
+        icon && (icon.className = 'fas fa-moon text-charcoal');
+        iconMobile && (iconMobile.className = 'fas fa-moon text-charcoal');
+    }
+}
+
+(function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+    }
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    const icon = document.getElementById('theme-icon');
+    const iconMobile = document.getElementById('theme-icon-mobile');
+    if (isDark) {
+        icon && (icon.className = 'fas fa-sun text-yellow-400');
+        iconMobile && (iconMobile.className = 'fas fa-sun text-yellow-400');
+    }
+});
+
 function toggleMobileMenu() {
     document.getElementById('mobile-menu-overlay').classList.toggle('active');
     document.getElementById('mobile-menu-panel').classList.toggle('active');

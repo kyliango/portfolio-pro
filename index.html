@@ -44,6 +44,11 @@
                     <a href="#work" class="text-slate hover:text-charcoal font-medium transition-colors">Projets</a>
                     <a href="#skills"
                         class="text-slate hover:text-charcoal font-medium transition-colors">Compétences</a>
+                    <button onclick="toggleDarkMode()" id="theme-toggle"
+                        class="w-10 h-10 rounded-full bg-sand flex items-center justify-center hover:scale-110 transition-all"
+                        title="Changer le thème">
+                        <i class="fas fa-moon text-charcoal" id="theme-icon"></i>
+                    </button>
                     <a href="#contact"
                         class="bg-charcoal text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-all hover:scale-105">
                         Contact
@@ -80,7 +85,7 @@
                     class="block py-3 px-4 rounded-xl text-white bg-charcoal font-semibold mt-4">Contact</a>
             </nav>
             <div class="mt-8 pt-8 border-t border-sand">
-                <div class="flex gap-3">
+                <div class="flex gap-3 items-center">
                     <a href="https://github.com/kyliango" target="_blank"
                         class="w-12 h-12 rounded-full bg-charcoal text-white flex items-center justify-center hover:scale-110 transition">
                         <i class="fab fa-github"></i>
@@ -89,6 +94,10 @@
                         class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
+                    <button onclick="toggleDarkMode()"
+                        class="w-12 h-12 rounded-full bg-sand flex items-center justify-center hover:scale-110 transition ml-auto">
+                        <i class="fas fa-moon text-charcoal" id="theme-icon-mobile"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -248,6 +257,22 @@
                             <p class="text-slate text-sm mb-2">1/2 semaine en entreprise</p>
                             <p class="text-slate">Développement Web / UX UI Design. Prêt à appliquer mes compétences en
                                 entreprise.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                                Avril — Juin 2026 · 8 semaines
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Stage — PALAN INFORMATIQUE</h4>
+                            <p class="text-slate text-sm mb-2">Plaisir (78) · Vente, réparation & services informatiques</p>
+                            <p class="text-slate">Refonte complète du site web de l'entreprise sous WordPress + Elementor, création d'une boutique WooCommerce, optimisation SEO (Rank Math) et migration vers Hostinger. Projet mené en totale autonomie.</p>
                         </div>
                     </div>
 
@@ -527,6 +552,44 @@
                             class="flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all">
                             Voir le projet
                             <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-12 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
+                    onclick="openModal('modal-palan')">
+                    <div class="grid lg:grid-cols-2">
+                        <div class="h-48 lg:h-full bg-gradient-to-br from-green-50 to-emerald-100 relative overflow-hidden min-h-[200px]">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-globe text-8xl text-green-600 opacity-20"></i>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="bg-white/80 backdrop-blur rounded-2xl px-8 py-6 text-center shadow-lg">
+                                    <p class="font-display text-3xl font-bold text-green-800">PALAN</p>
+                                    <p class="text-green-600 font-semibold">INFORMATIQUE</p>
+                                    <p class="text-xs text-slate mt-1">palan-informatique.fr</p>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Stage · 8 semaines</span>
+                            </div>
+                        </div>
+                        <div class="p-8 lg:p-10">
+                            <div class="flex gap-2 mb-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WordPress</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Elementor</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WooCommerce</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">SEO</span>
+                            </div>
+                            <h3 class="font-display text-2xl lg:text-3xl font-bold mb-3 group-hover:text-green-600 transition-colors">
+                                Refonte Site Web — PALAN INFORMATIQUE</h3>
+                            <p class="text-slate leading-relaxed mb-4">Refonte complète du site sous WordPress + Elementor en 8 semaines de stage. Boutique WooCommerce, optimisation SEO, migration d'hébergement et sécurisation — mené en totale autonomie.</p>
+                            <div class="flex items-center text-green-600 font-semibold group-hover:gap-3 gap-2 transition-all">
+                                Voir le détail
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -843,6 +906,77 @@
                     <a href="https://github.com/kyliango/jobtrackr" target="_blank"
                         class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
                         <i class="fab fa-github"></i>Code source
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-palan"
+        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
+        onclick="closeModal('modal-palan')">
+        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-palan')"
+                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
+                <i class="fas fa-times text-charcoal"></i>
+            </button>
+            <div class="h-48 bg-gradient-to-br from-green-50 to-emerald-100 relative flex items-center justify-center">
+                <div class="text-center">
+                    <p class="font-display text-5xl font-bold text-green-800">PALAN INFORMATIQUE</p>
+                    <p class="text-green-600 mt-2 font-semibold">Stage · Avril — Juin 2026 · Plaisir (78)</p>
+                </div>
+                <div class="absolute top-4 left-8">
+                    <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">8 semaines · BUT2 MMI</span>
+                </div>
+            </div>
+            <div class="p-8 lg:p-12">
+                <div class="flex gap-2 mb-6 flex-wrap">
+                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WordPress</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Elementor</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WooCommerce</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Rank Math SEO</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Wordfence</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Hostinger</span>
+                </div>
+                <h3 class="font-display text-4xl font-bold mb-4">Refonte Site Web — PALAN INFORMATIQUE</h3>
+                <p class="text-slate text-lg leading-relaxed mb-8">
+                    Refonte intégrale du site web de PALAN INFORMATIQUE (vente, réparation & services informatiques à Plaisir, 78) en 8 semaines de stage. Projet mené entièrement en autonomie, sans cahier des charges formalisé — j'ai reconstitué moi-même les intentions du client et livré un site fonctionnel dans les délais.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h4 class="font-bold text-charcoal mb-3">Mission principale</h4>
+                        <ul class="space-y-2 text-slate text-sm">
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Reconstruction intégrale sous WordPress + Elementor (méthode itérative, sans maquette Figma)</li>
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Architecture complète : Accueil, Particuliers, Entreprises, Boutique, Blog, Contact</li>
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Boutique WooCommerce avec fiches produits et photos prises sur place</li>
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>SEO optimisé avec Rank Math (sitemap XML, rich snippets, métadonnées)</li>
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Responsive vérifié sur desktop, tablette et mobile</li>
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Développement local (Local) → migration Hostinger</li>
+                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Sécurisation Wordfence (WAF + scanner malwares)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-charcoal mb-3">Mission secondaire</h4>
+                        <p class="text-slate text-sm mb-4">Amorce du site <strong class="text-charcoal">PALAN CONSULTING</strong> (société de conseil en cybersécurité du même dirigeant) sur sous-domaine Hostinger en préproduction — page d'accueil et page des offres.</p>
+                        <h4 class="font-bold text-charcoal mb-3">Contexte particulier</h4>
+                        <p class="text-slate text-sm">Projet mené <strong class="text-charcoal">seul</strong> (seul salarié parti pendant le stage), avec un dirigeant absent 2 jours/semaine. J'ai reconstitué le cahier des charges à partir des intentions du client et assuré des validations hebdomadaires.</p>
+                    </div>
+                </div>
+                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">WordPress</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Elementor</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">WooCommerce</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Rank Math SEO</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Wordfence</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Local (dev)</span>
+                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Hostinger</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://palan-informatique.fr/" target="_blank"
+                        class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
+                        <i class="fas fa-external-link-alt"></i>Voir le site livré
                     </a>
                 </div>
             </div>
