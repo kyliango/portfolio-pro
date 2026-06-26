@@ -3,6 +3,22 @@
 body {
     background: #FAFAF8;
     font-family: 'Outfit', sans-serif;
+    color: #2B2B2B;
+}
+
+/* ===== COULEURS CUSTOM TAILWIND (fallback garanti) ===== */
+.bg-charcoal  { background-color: #2B2B2B !important; }
+.bg-cream     { background-color: #FAFAF8 !important; }
+.bg-beige     { background-color: #F5F3EF !important; }
+.bg-sand      { background-color: #E8E4DD !important; }
+.text-charcoal{ color: #2B2B2B !important; }
+.text-slate   { color: #64748B !important; }
+.border-charcoal { border-color: #2B2B2B !important; }
+
+/* Inputs : couleur de texte héritée */
+input, textarea, select {
+    color: #2B2B2B;
+    font-family: 'Outfit', sans-serif;
 }
 
 body::before {
@@ -360,8 +376,11 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4 {
 html.dark p    { color: #b0aca6; }
 html.dark li   { color: #b0aca6; }
 html.dark strong { color: #f0ece6 !important; }
+html.dark .text-charcoal { color: #e8e4dd !important; }
 html.dark [class*="text-charcoal"] { color: #e8e4dd !important; }
+html.dark .text-slate    { color: #9ca3af !important; }
 html.dark [class*="text-slate"]    { color: #9ca3af !important; }
+html.dark input, html.dark textarea { color: #e8e4dd !important; }
 html.dark [class*="text-green-700"] { color: #6ee7b7 !important; }
 html.dark [class*="text-orange-900"] { color: #fca5a5 !important; }
 
