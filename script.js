@@ -13,13 +13,6 @@ function toggleDarkMode() {
     }
 }
 
-(function() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-        document.documentElement.classList.add('dark');
-    }
-})();
-
 document.addEventListener('DOMContentLoaded', () => {
     const isDark = document.documentElement.classList.contains('dark');
     const icon = document.getElementById('theme-icon');

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -28,6 +29,12 @@
                 }
             }
         }
+        // Apply saved theme before page renders to avoid flash
+        (function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
     </script>
 </head>
 
