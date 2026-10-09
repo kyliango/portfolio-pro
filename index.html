@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -7,993 +7,705 @@
     <meta name="google-site-verification" content="f-LOQs9Suc-Knx3jA7RntCZJECGxUC0xL8QNecb1E2M" />
     <title>Kylian Giard Ouadifi | Développeur Web & UX/UI Designer</title>
     <meta name="description"
-        content="Portfolio de Kylian Giard Ouadifi, étudiant en BUT MMI. Développeur Fullstack spécialisé en React, Next.js et Design UI/UX.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+        content="Portfolio de Kylian Giard Ouadifi, étudiant en BUT MMI. Développeur Fullstack spécialisé en React, Next.js et Design UI/UX. Disponible en alternance dès septembre 2026.">
+    <meta property="og:title" content="Kylian Giard Ouadifi | Développeur Web & UX/UI Designer">
+    <meta property="og:description" content="Développeur Fullstack & Designer UX/UI — disponible en alternance dès septembre 2026.">
+    <meta property="og:image" content="IMG_3136.jpeg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#F3F2ED" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0C0C0C" media="(prefers-color-scheme: dark)">
+
+    <!-- Thème appliqué avant le rendu pour éviter le flash -->
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        cream: '#FAFAF8', beige: '#F5F3EF', sand: '#E8E4DD',
-                        charcoal: '#2B2B2B', slate: '#64748B',
-                        lavender: '#A78BFA', mint: '#86EFAC',
-                        peach: '#FDBA74', sky: '#7DD3FC', coral: '#F87171',
-                    },
-                }
-            }
-        }
-        // Apply saved theme before page renders to avoid flash
-        (function() {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.classList.add('dark');
-            }
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark' || saved === 'light') root.dataset.theme = saved;
+            } catch (e) { }
         })();
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="font-sans antialiased text-charcoal overflow-x-hidden">
+<body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
-    <nav class="fixed w-full z-50 bg-cream/80 backdrop-blur-md border-b border-sand/50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="#" class="font-display text-2xl font-bold tracking-tight hover:scale-105 transition-transform">
-                    KGO<span class="text-lavender">.</span>
-                </a>
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#about" class="text-slate hover:text-charcoal font-medium transition-colors">À propos</a>
-                    <a href="#work" class="text-slate hover:text-charcoal font-medium transition-colors">Projets</a>
-                    <a href="#skills"
-                        class="text-slate hover:text-charcoal font-medium transition-colors">Compétences</a>
-                    <button onclick="toggleDarkMode()" id="theme-toggle"
-                        class="w-10 h-10 rounded-full bg-sand flex items-center justify-center hover:scale-110 transition-all"
-                        title="Changer le thème">
-                        <i class="fas fa-moon text-charcoal" id="theme-icon"></i>
-                    </button>
-                    <a href="#contact"
-                        class="bg-charcoal text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-all hover:scale-105">
-                        Contact
-                    </a>
-                </div>
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2">
-                    <i class="fas fa-bars text-2xl"></i>
+    <!-- ========== HEADER ========== -->
+    <header class="site-header" id="site-header">
+        <nav class="wrap nav" aria-label="Navigation principale">
+            <a href="#top" class="logo" aria-label="Accueil — Kylian Giard Ouadifi">KGO<span>.</span></a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#projets">Projets<sup>01</sup></a></li>
+                <li><a href="#parcours">Parcours<sup>02</sup></a></li>
+                <li><a href="#competences">Compétences<sup>03</sup></a></li>
+                <li><a href="#a-propos">À propos<sup>04</sup></a></li>
+                <li><a href="#contact">Contact<sup>05</sup></a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <span class="nav-status"><span class="dot" aria-hidden="true"></span>Ouvert aux alternances</span>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Changer le thème">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+                    aria-controls="nav-links">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <div id="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
-    <div id="mobile-menu-panel">
-        <div class="p-6">
-            <div class="flex items-center justify-between mb-8">
-                <span class="font-display text-xl font-bold">Menu</span>
-                <button onclick="toggleMobileMenu()"
-                    class="w-10 h-10 rounded-full bg-sand flex items-center justify-center">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <nav class="space-y-2">
-                <a href="#" onclick="toggleMobileMenu()"
-                    class="block py-3 px-4 rounded-xl font-semibold text-charcoal bg-sand">Accueil</a>
-                <a href="#about" onclick="toggleMobileMenu()"
-                    class="block py-3 px-4 rounded-xl text-slate hover:bg-sand hover:text-charcoal transition">À
-                    propos</a>
-                <a href="#work" onclick="toggleMobileMenu()"
-                    class="block py-3 px-4 rounded-xl text-slate hover:bg-sand hover:text-charcoal transition">Projets</a>
-                <a href="#skills" onclick="toggleMobileMenu()"
-                    class="block py-3 px-4 rounded-xl text-slate hover:bg-sand hover:text-charcoal transition">Compétences</a>
-                <a href="#contact" onclick="toggleMobileMenu()"
-                    class="block py-3 px-4 rounded-xl text-white bg-charcoal font-semibold mt-4">Contact</a>
-            </nav>
-            <div class="mt-8 pt-8 border-t border-sand">
-                <div class="flex gap-3 items-center">
-                    <a href="https://github.com/kyliango" target="_blank"
-                        class="w-12 h-12 rounded-full bg-charcoal text-white flex items-center justify-center hover:scale-110 transition">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank"
-                        class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <button onclick="toggleDarkMode()"
-                        class="w-12 h-12 rounded-full bg-sand flex items-center justify-center hover:scale-110 transition ml-auto">
-                        <i class="fas fa-moon text-charcoal" id="theme-icon-mobile"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <main id="main">
 
-    <section class="pt-32 pb-20 px-6 lg:px-8 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
-
-                <div
-                    class="lg:col-span-7 bg-white rounded-3xl p-8 lg:p-12 shadow-lg reveal transform-3d card-gradient-animate">
-                    <div
-                        class="inline-flex items-center gap-2 bg-mint/20 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 glow-effect">
-                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse icon-scale-rotate"></span>
-                        Disponible alternance 2026
-                    </div>
-                    <h1 class="font-display text-5xl lg:text-7xl font-bold leading-tight mb-6">
-                        Je conçois des
-                        <span class="block gradient-text">
-                            expériences digitales
-                        </span>
-                    </h1>
-                    <p class="text-xl text-slate leading-relaxed mb-8 max-w-2xl">
-                        Développeur Fullstack & Designer UX/UI en BUT2 MMI à l'IUT de Bobigny.
-                        Je crée des interfaces élégantes et performantes.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#work"
-                            class="bg-charcoal text-white px-8 py-4 rounded-full font-semibold magnetic-btn inline-flex items-center gap-2 rotate-on-hover glow-effect">
-                            Voir mes projets
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="CV.pdf" download
-                            class="border-2 border-charcoal text-charcoal px-8 py-4 rounded-full font-semibold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2 magnetic-btn rotate-on-hover">
-                            <i class="fas fa-download"></i>
-                            Télécharger CV
-                        </a>
-                    </div>
+        <!-- ========== HERO ========== -->
+        <section class="hero" id="top">
+            <div class="wrap">
+                <div class="hero-top reveal">
+                    <p class="label">~/kylian-giard-ouadifi · portfolio_2026</p>
+                    <p class="hero-status"><span class="dot" aria-hidden="true"></span>Disponible en alternance ·
+                        septembre 2026</p>
                 </div>
 
-                <div
-                    class="lg:col-span-5 bg-gradient-to-br from-lavender/20 to-sky/20 rounded-3xl overflow-hidden shadow-lg reveal h-[400px] lg:h-auto relative group transform-3d glow-effect">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent z-10"></div>
-                    <img src="IMG_3136.jpeg" alt="Kylian Giard Ouadifi"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute bottom-8 left-8 z-20 text-white">
-                        <p class="text-sm font-semibold mb-1 opacity-80">Kylian Giard Ouadifi</p>
-                        <p class="font-display text-2xl font-bold">Développeur & Designer</p>
-                    </div>
-                </div>
+                <h1 class="hero-title reveal-lines">
+                    <span class="split-line"><span>Je conçois des</span></span>
+                    <span class="split-line" style="--delay: .1s"><span><em>expériences</em></span></span>
+                    <span class="split-line" style="--delay: .2s"><span>digitales.<span class="caret" aria-hidden="true"></span></span></span>
+                </h1>
 
-                <div
-                    class="lg:col-span-4 bg-gradient-to-br from-peach/30 to-coral/20 rounded-3xl p-8 shadow-lg reveal transform-3d glow-effect">
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-2xl mb-4 float-animation icon-scale-rotate">
-                        🔍
-                    </div>
-                    <p class="text-sm font-semibold text-orange-900 mb-2">Actuellement</p>
-                    <h3 class="font-display text-xl font-bold text-charcoal mb-3">Recherche alterance</h3>
-                    <p class="text-slate text-sm">À partir de septembre 2026 • Développement Web / UX UI Design
-                    </p>
-                </div>
+                <div class="hero-bottom">
+                    <figure class="hero-photo reveal">
+                        <img src="IMG_3136.jpeg" alt="Portrait de Kylian Giard Ouadifi" width="960" height="1200"
+                            fetchpriority="high">
+                        <figcaption>Développeur &amp; Designer</figcaption>
+                    </figure>
 
-                <div class="lg:col-span-4 bg-white rounded-3xl p-8 shadow-lg reveal transform-3d card-gradient-animate">
-                    <div class="space-y-6">
-                        <div class="text-center">
-                            <div class="font-display text-5xl font-bold text-charcoal">2+</div>
-                            <p class="text-slate mt-1 text-sm">Années d'études</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="font-display text-5xl font-bold text-charcoal">6+</div>
-                            <p class="text-slate mt-1 text-sm">Projets réalisés</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="lg:col-span-4 bg-gradient-to-br from-sky/20 to-lavender/20 rounded-3xl p-8 shadow-lg reveal flex flex-col justify-center transform-3d glow-effect">
-                    <i class="fas fa-map-marker-alt text-4xl text-blue-600 mb-4"></i>
-                    <p class="text-sm text-slate mb-2">Basé à</p>
-                    <p class="font-display text-2xl font-bold text-charcoal">Courbevoie, 92</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 px-6 lg:px-8 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">À propos de moi</h2>
-                <p class="text-xl text-slate max-w-2xl mx-auto">Développeur passionné par le design et l'expérience
-                    utilisateur</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-lavender/20 flex items-center justify-center text-lavender text-2xl mb-6">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-4">Mon Profil</h3>
-                    <p class="text-slate leading-relaxed mb-4">
-                        J'ai <strong class="text-charcoal">20 ans</strong> et je vis à Courbevoie (92). Actuellement en
-                        deuxième année de
-                        <strong class="text-charcoal">BUT MMI à l'IUT de Bobigny</strong>, je me spécialise dans le
-                        développement web Fullstack et le design d'interface.
-                    </p>
-                    <p class="text-slate leading-relaxed">
-                        Ce qui me motive ? Trouver le <strong class="text-charcoal">point d'équilibre parfait</strong>
-                        entre une esthétique soignée et un code propre et performant.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg reveal transform-3d">
-                    <h3 class="font-display text-2xl font-bold mb-6">Ce que j'aime</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div
-                            class="bg-sky/10 rounded-2xl p-6 text-center transition-transform cursor-pointer transform-3d bounce-on-hover">
-                            <i class="fas fa-camera text-3xl text-sky-600 mb-3 icon-bounce"></i>
-                            <p class="font-semibold text-charcoal">Photo</p>
-                        </div>
-                        <div
-                            class="bg-lavender/10 rounded-2xl p-6 text-center transition-transform cursor-pointer transform-3d bounce-on-hover">
-                            <i class="fas fa-user-ninja text-3xl text-lavender mb-3 icon-bounce"></i>
-                            <p class="font-semibold text-charcoal">Boxe Thaï</p>
-                        </div>
-                        <div
-                            class="bg-mint/10 rounded-2xl p-6 text-center hover:scale-105 transition-transform cursor-pointer">
-                            <i class="fas fa-plane text-3xl text-green-600 mb-3"></i>
-                            <p class="font-semibold text-charcoal">Voyage</p>
-                        </div>
-                        <div
-                            class="bg-peach/10 rounded-2xl p-6 text-center hover:scale-105 transition-transform cursor-pointer">
-                            <i class="fas fa-music text-3xl text-orange-600 mb-3"></i>
-                            <p class="font-semibold text-charcoal">Musique</p>
+                    <div class="hero-side reveal" style="--delay: .15s">
+                        <p class="hero-bio">
+                            Développeur <strong>Fullstack</strong> &amp; Designer <strong>UX/UI</strong> en 3ᵉ année
+                            de BUT MMI à l'IUT de Bobigny. Je crée des interfaces élégantes et performantes.
+                        </p>
+                        <ul class="hero-meta">
+                            <li><span>Basé à</span>Courbevoie (92)</li>
+                            <li><span>Formation</span>BUT MMI — 3ᵉ année</li>
+                            <li><span>Recherche</span>Alternance Dév. Web / UX UI Design</li>
+                            <li><span>Mobilité</span>Permis B · véhiculé</li>
+                        </ul>
+                        <div class="hero-actions">
+                            <a href="#projets" class="btn btn-primary">
+                                Voir mes projets <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                            </a>
+                            <a href="CV.pdf" download class="link-arrow">
+                                Télécharger mon CV <i class="fas fa-download" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 bg-white rounded-3xl p-8 lg:p-12 shadow-lg reveal">
-                <h3 class="font-display text-2xl font-bold mb-8">Mon Parcours</h3>
-                <div class="space-y-8">
-                    <div class="flex gap-6 group">
-                        <div
-                            class="flex-shrink-0 w-12 h-12 rounded-full bg-mint/20 text-green-600 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div>
-                            <div
-                                class="inline-block bg-mint/20 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                                Septembre 2026
-                            </div>
-                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Recherche Alternance
-                            </h4>
-                            <p class="text-slate text-sm mb-2">1/2 semaine en entreprise</p>
-                            <p class="text-slate">Développement Web / UX UI Design. Prêt à appliquer mes compétences en
-                                entreprise.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6 group">
-                        <div
-                            class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div>
-                            <div
-                                class="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                                Avril — Juin 2026 · 8 semaines
-                            </div>
-                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Stage — PALAN INFORMATIQUE</h4>
-                            <p class="text-slate text-sm mb-2">Plaisir (78) · Vente, réparation & services informatiques</p>
-                            <p class="text-slate">Refonte complète du site web de l'entreprise sous WordPress + Elementor, création d'une boutique WooCommerce, optimisation SEO (Rank Math) et migration vers Hostinger. Projet mené en totale autonomie.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6 group">
-                        <div
-                            class="flex-shrink-0 w-12 h-12 rounded-full bg-lavender/20 text-lavender flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <div
-                                class="inline-block bg-lavender/20 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                                2024 - Présent
-                            </div>
-                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">BUT MMI (2ème année)</h4>
-                            <p class="text-slate text-sm mb-2">IUT de Bobigny</p>
-                            <p class="text-slate">Métiers du Multimédia et de l'Internet. Spécialisation Dev & Design.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6 group">
-                        <div
-                            class="flex-shrink-0 w-12 h-12 rounded-full bg-sky/20 text-sky-600 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div>
-                            <div
-                                class="inline-block bg-sky/20 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                                Sept 2023 - Jan 2024
-                            </div>
-                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Début BUT Informatique</h4>
-                            <p class="text-slate text-sm mb-2">IUT Paris Rives de Seine</p>
-                            <p class="text-slate">Semestre initial en informatique pure avant réorientation vers MMI.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6 group">
-                        <div
-                            class="flex-shrink-0 w-12 h-12 rounded-full bg-sand text-charcoal flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <div>
-                            <div
-                                class="inline-block bg-sand text-charcoal px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                                2021 - 2023
-                            </div>
-                            <h4 class="font-display text-xl font-bold text-charcoal mb-1">Bac STI2D option SIN</h4>
-                            <p class="text-slate text-sm mb-2">Lycée Agora, Puteaux</p>
-                            <p class="text-slate">Obtenu avec Mention Assez Bien.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-20 px-6 lg:px-8 bg-gradient-to-b from-beige to-cream relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">Compétences</h2>
-                <p class="text-xl text-slate max-w-2xl mx-auto">Une combinaison technique et créative</p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-lavender/20 flex items-center justify-center text-lavender text-2xl mb-6">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6">Développement</h3>
-                    <div class="space-y-3">
-                        <div
-                            class="skill-card bg-lavender/10 rounded-xl p-4 hover:bg-lavender/20 transition cursor-pointer">
-                            <span class="font-semibold text-charcoal">HTML / CSS / Tailwind</span>
-                        </div>
-                        <div class="skill-card bg-sky/10 rounded-xl p-4 hover:bg-sky/20 transition cursor-pointer">
-                            <span class="font-semibold text-charcoal">React.js & Next.js</span>
-                        </div>
-                        <div class="skill-card bg-mint/10 rounded-xl p-4 hover:bg-mint/20 transition cursor-pointer">
-                            <span class="font-semibold text-charcoal">PHP & MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-sky/20 flex items-center justify-center text-sky-600 text-2xl mb-6">
-                        <i class="fas fa-pen-nib"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6">Design UI/UX</h3>
-                    <div class="space-y-3">
-                        <div
-                            class="skill-card bg-lavender/10 rounded-xl p-4 hover:bg-lavender/20 transition cursor-pointer">
-                            <span class="font-semibold text-charcoal">Figma</span>
-                        </div>
-                        <div class="skill-card bg-peach/10 rounded-xl p-4 hover:bg-peach/20 transition cursor-pointer">
-                            <span class="font-semibold text-charcoal">Adobe Suite</span>
-                        </div>
-                        <div class="skill-card bg-sky/10 rounded-xl p-4 hover:bg-sky/20 transition cursor-pointer">
-                            <span class="font-semibold text-charcoal">Prototypage</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-mint/20 flex items-center justify-center text-green-600 text-2xl mb-6">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6">Soft Skills</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-slate bg-mint/10 rounded-xl p-4">
-                            <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i>
-                            <span class="font-medium">Méthodologie Agile</span>
-                        </li>
-                        <li class="flex items-center text-slate bg-lavender/10 rounded-xl p-4">
-                            <i class="fas fa-check-circle text-lavender mr-3 text-xl"></i>
-                            <span class="font-medium">Travail d'équipe</span>
-                        </li>
-                        <li class="flex items-center text-slate bg-sky/10 rounded-xl p-4">
-                            <i class="fas fa-check-circle text-sky-600 mr-3 text-xl"></i>
-                            <span class="font-medium">Autonomie & Curiosité</span>
-                        </li>
+            <div class="marquee" aria-label="Technologies : React, Next.js, Figma, WordPress, PHP, MySQL, Tailwind, Firebase">
+                <div class="marquee-track" aria-hidden="true">
+                    <ul>
+                        <li>React</li>
+                        <li>Next.js</li>
+                        <li>Figma</li>
+                        <li>WordPress</li>
+                        <li>PHP &amp; MySQL</li>
+                        <li>Tailwind</li>
+                        <li>Firebase</li>
+                        <li>UX/UI Design</li>
+                    </ul>
+                    <ul>
+                        <li>React</li>
+                        <li>Next.js</li>
+                        <li>Figma</li>
+                        <li>WordPress</li>
+                        <li>PHP &amp; MySQL</li>
+                        <li>Tailwind</li>
+                        <li>Firebase</li>
+                        <li>UX/UI Design</li>
                     </ul>
                 </div>
             </div>
+        </section>
 
-            <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-lg reveal">
-                <h3 class="font-display text-2xl font-bold mb-8 text-center">Mes Outils Favoris</h3>
-                <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
-                    <div
-                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
-                        <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
-                        <span class="text-xs font-semibold text-charcoal">Git</span>
-                    </div>
-                    <div
-                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
-                        <i class="fab fa-github text-4xl text-charcoal mb-2"></i>
-                        <span class="text-xs font-semibold text-charcoal">GitHub</span>
-                    </div>
-                    <div
-                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
-                        <i class="fas fa-code text-4xl text-blue-600 mb-2"></i>
-                        <span class="text-xs font-semibold text-charcoal">VS Code</span>
-                    </div>
-                    <div
-                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
-                        <i class="fab fa-figma text-4xl text-purple-600 mb-2"></i>
-                        <span class="text-xs font-semibold text-charcoal">Figma</span>
-                    </div>
-                    <div
-                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
-                        <i class="fas fa-tasks text-4xl text-red-600 mb-2"></i>
-                        <span class="text-xs font-semibold text-charcoal">Notion</span>
-                    </div>
-                    <div
-                        class="tool-icon flex flex-col items-center justify-center p-4 rounded-2xl bg-charcoal/5 hover:bg-charcoal/10 cursor-pointer">
-                        <i class="fas fa-clipboard-list text-4xl text-green-600 mb-2"></i>
-                        <span class="text-xs font-semibold text-charcoal">Trello</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- ========== PROJETS ========== -->
+        <section class="section" id="projets">
+            <div class="wrap">
+                <header class="sec-head reveal">
+                    <span class="sec-num">// 01</span>
+                    <h2>Projets <em>choisis</em></h2>
+                    <p class="sec-aside">D'un vrai site client livré en stage à des applications web fullstack.
+                        Cliquez sur un projet pour l'étude de cas.</p>
+                </header>
 
-    <section id="work" class="py-20 px-6 lg:px-8 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">Mes Projets</h2>
-                <p class="text-xl text-slate max-w-2xl mx-auto">Une sélection de mes meilleurs travaux</p>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
-
-                <div class="lg:col-span-7 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
-                    onclick="openModal('modal-ecodash')">
-                    <div class="h-64 lg:h-80 bg-gradient-to-br from-green-100 to-emerald-200 relative overflow-hidden">
-                        <img src="https://picsum.photos/seed/ecotrack/1200/600"
-                            alt="EcoTrack"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span
-                                class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">UX/UI</span>
-                            <span
-                                class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">Next.js</span>
-                        </div>
-                        <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-green-600 transition-colors">
-                            EcoTrack Dashboard</h3>
-                        <p class="text-slate leading-relaxed mb-4">App de visualisation d'empreinte carbone avec
-                            gamification.</p>
-                        <div
-                            class="flex items-center text-green-600 font-semibold group-hover:gap-3 gap-2 transition-all">
-                            Voir le projet
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
-                    onclick="openModal('modal-cinematch')">
-                    <div class="h-48 lg:h-64 bg-gradient-to-br from-pink-100 to-purple-200 relative overflow-hidden">
-                        <img src="https://picsum.photos/seed/cinematch/800/500"
-                            alt="CinéMatch"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span
-                                class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">React</span>
-                            <span
-                                class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">API</span>
-                        </div>
-                        <h3 class="font-display text-2xl font-bold mb-3 group-hover:text-purple-600 transition-colors">
-                            CinéMatch AI</h3>
-                        <p class="text-slate leading-relaxed mb-4">Recommandation de films par humeur via API TMDB.</p>
-                        <div
-                            class="flex items-center text-purple-600 font-semibold group-hover:gap-3 gap-2 transition-all">
-                            Voir le projet
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
-                    onclick="openModal('modal-restoconnect')">
-                    <div class="h-48 lg:h-64 bg-gradient-to-br from-orange-100 to-yellow-200 relative overflow-hidden">
-                        <img src="https://picsum.photos/seed/restoconnect/800/500"
-                            alt="RestoConnect"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span
-                                class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">PHP</span>
-                            <span
-                                class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">MySQL</span>
-                        </div>
-                        <h3 class="font-display text-2xl font-bold mb-3 group-hover:text-orange-600 transition-colors">
-                            RestoConnect</h3>
-                        <p class="text-slate leading-relaxed mb-4">Plateforme d'administration de menus pour
-                            restaurateurs.</p>
-                        <div
-                            class="flex items-center text-orange-600 font-semibold group-hover:gap-3 gap-2 transition-all">
-                            Voir le projet
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
-                    onclick="openModal('modal-jobtrackr')">
-                    <div class="h-48 lg:h-64 bg-gradient-to-br from-indigo-100 to-blue-200 relative overflow-hidden">
-                        <img src="https://picsum.photos/seed/jobtrackr/800/500"
-                            alt="JobTrackr"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent"></div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span
-                                class="px-3 py-1 bg-sky/20 text-blue-700 text-xs font-bold rounded-full">Fullstack</span>
-                            <span class="px-3 py-1 bg-sky/20 text-blue-700 text-xs font-bold rounded-full">React</span>
-                            <span
-                                class="px-3 py-1 bg-sky/20 text-blue-700 text-xs font-bold rounded-full">Firebase</span>
-                        </div>
-                        <h3 class="font-display text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">
-                            JobTrackr</h3>
-                        <p class="text-slate leading-relaxed mb-4">Application de suivi de candidatures avec Kanban
-                            interactif et base de données temps réel.</p>
-                        <div
-                            class="flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all">
-                            Voir le projet
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-12 bento-card bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer reveal group"
-                    onclick="openModal('modal-palan')">
-                    <div class="grid lg:grid-cols-2">
-                        <div class="h-48 lg:h-full bg-gradient-to-br from-green-50 to-emerald-100 relative overflow-hidden min-h-[200px]">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="text-center">
-                                    <i class="fas fa-globe text-8xl text-green-600 opacity-20"></i>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="bg-white/80 backdrop-blur rounded-2xl px-8 py-6 text-center shadow-lg">
-                                    <p class="font-display text-3xl font-bold text-green-800">PALAN</p>
-                                    <p class="text-green-600 font-semibold">INFORMATIQUE</p>
-                                    <p class="text-xs text-slate mt-1">palan-informatique.fr</p>
-                                </div>
-                            </div>
-                            <div class="absolute top-4 left-4">
-                                <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Stage · 8 semaines</span>
-                            </div>
-                        </div>
-                        <div class="p-8 lg:p-10">
-                            <div class="flex gap-2 mb-4">
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WordPress</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Elementor</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WooCommerce</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">SEO</span>
-                            </div>
-                            <h3 class="font-display text-2xl lg:text-3xl font-bold mb-3 group-hover:text-green-600 transition-colors">
-                                Refonte Site Web — PALAN INFORMATIQUE</h3>
-                            <p class="text-slate leading-relaxed mb-4">Refonte complète du site sous WordPress + Elementor en 8 semaines de stage. Boutique WooCommerce, optimisation SEO, migration d'hébergement et sécurisation — mené en totale autonomie.</p>
-                            <div class="flex items-center text-green-600 font-semibold group-hover:gap-3 gap-2 transition-all">
-                                Voir le détail
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="lg:col-span-7 bg-gradient-to-br from-charcoal to-slate-800 rounded-3xl p-8 lg:p-12 shadow-lg reveal flex flex-col justify-center text-white">
-                    <h3 class="font-display text-4xl font-bold mb-4">Un projet en tête ?</h3>
-                    <p class="text-white/80 text-lg mb-8 max-w-xl">Je suis toujours intéressé par de nouvelles
-                        opportunités et collaborations.</p>
-                    <div>
-                        <a href="#contact"
-                            class="inline-block bg-white text-charcoal px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform">
-                            Discutons-en
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 px-6 lg:px-8 bg-gradient-to-b from-beige to-cream relative z-10">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4">Restons en contact</h2>
-                <p class="text-xl text-slate">N'hésitez pas à me contacter pour toute opportunité</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="space-y-6 reveal">
-                    <div class="bg-white rounded-3xl p-8 shadow-lg">
-                        <div class="flex items-center justify-between mb-2">
-                            <p class="text-sm text-slate font-semibold">Email</p>
-                            <button onclick="copyEmail()" class="text-slate hover:text-charcoal transition-colors"
-                                title="Copier">
-                                <i class="far fa-copy"></i>
-                            </button>
-                        </div>
-                        <a href="mailto:Kylian-giard@outlook.fr"
-                            class="text-xl font-bold text-charcoal hover:text-lavender transition-colors">
-                            Kylian-giard@outlook.fr
-                        </a>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank"
-                            class="flex-1 bg-blue-600 text-white rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-lg">
-                            <i class="fab fa-linkedin-in text-3xl mb-3"></i>
-                            <p class="font-bold">LinkedIn</p>
-                        </a>
-                        <a href="https://github.com/kyliango" target="_blank"
-                            class="flex-1 bg-charcoal text-white rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-lg">
-                            <i class="fab fa-github text-3xl mb-3"></i>
-                            <p class="font-bold">GitHub</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 shadow-lg reveal">
-                    <form id="contactForm" action="https://formspree.io/f/meoyplby" method="POST" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-bold text-charcoal mb-2">Nom</label>
-                            <input type="text" name="name" required
-                                class="w-full bg-beige border-2 border-transparent rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-lavender transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-charcoal mb-2">Email</label>
-                            <input type="email" name="email" required
-                                class="w-full bg-beige border-2 border-transparent rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-lavender transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-charcoal mb-2">Message</label>
-                            <textarea rows="4" name="message" required
-                                class="w-full bg-beige border-2 border-transparent rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-lavender transition-colors"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-charcoal text-white font-bold py-4 rounded-xl hover:scale-105 transition-transform flex items-center justify-center gap-2">
-                            Envoyer le message
-                            <i class="fas fa-paper-plane"></i>
+                <ol class="work-list">
+                    <li class="work-row tint-green reveal">
+                        <button type="button" class="work-btn" data-project="palan">
+                            <span class="work-idx">01</span>
+                            <span class="work-main">
+                                <span class="work-title">PALAN Informatique</span>
+                                <span class="work-desc">Refonte complète du site sous WordPress + Elementor en 8
+                                    semaines de stage, menée en totale autonomie.</span>
+                                <span class="work-meta">
+                                    <span class="work-flag">Client réel · Stage</span>
+                                    <span>WordPress</span><span>WooCommerce</span><span>SEO</span>
+                                </span>
+                            </span>
+                            <span class="work-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                         </button>
+                        <span class="work-preview" aria-hidden="true"><i class="fas fa-globe"></i><b>palan-informatique.fr</b></span>
+                    </li>
+
+                    <li class="work-row tint-blue reveal">
+                        <button type="button" class="work-btn" data-project="jobtrackr">
+                            <span class="work-idx">02</span>
+                            <span class="work-main">
+                                <span class="work-title">JobTrackr</span>
+                                <span class="work-desc">Application de suivi de candidatures avec Kanban interactif et
+                                    base de données temps réel.</span>
+                                <span class="work-meta"><span>Fullstack</span><span>React</span><span>Firebase</span></span>
+                            </span>
+                            <span class="work-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </button>
+                        <span class="work-preview" aria-hidden="true"><i class="fas fa-table-columns"></i><b>Kanban</b></span>
+                    </li>
+
+                    <li class="work-row tint-green reveal">
+                        <button type="button" class="work-btn" data-project="ecotrack">
+                            <span class="work-idx">03</span>
+                            <span class="work-main">
+                                <span class="work-title">EcoTrack Dashboard</span>
+                                <span class="work-desc">App de visualisation d'empreinte carbone avec
+                                    gamification.</span>
+                                <span class="work-meta"><span>UX/UI</span><span>Next.js</span></span>
+                            </span>
+                            <span class="work-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </button>
+                        <span class="work-preview" aria-hidden="true"><i class="fas fa-leaf"></i><b>Dashboard</b></span>
+                    </li>
+
+                    <li class="work-row tint-purple reveal">
+                        <button type="button" class="work-btn" data-project="cinematch">
+                            <span class="work-idx">04</span>
+                            <span class="work-main">
+                                <span class="work-title">CinéMatch AI</span>
+                                <span class="work-desc">Recommandation de films par humeur via l'API TMDB.</span>
+                                <span class="work-meta"><span>React</span><span>API</span></span>
+                            </span>
+                            <span class="work-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </button>
+                        <span class="work-preview" aria-hidden="true"><i class="fas fa-film"></i><b>API TMDB</b></span>
+                    </li>
+
+                    <li class="work-row tint-orange reveal">
+                        <button type="button" class="work-btn" data-project="restoconnect">
+                            <span class="work-idx">05</span>
+                            <span class="work-main">
+                                <span class="work-title">RestoConnect</span>
+                                <span class="work-desc">Plateforme d'administration de menus pour restaurateurs.</span>
+                                <span class="work-meta"><span>PHP</span><span>MySQL</span></span>
+                            </span>
+                            <span class="work-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </button>
+                        <span class="work-preview" aria-hidden="true"><i class="fas fa-utensils"></i><b>Admin</b></span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ========== PARCOURS ========== -->
+        <section class="section" id="parcours">
+            <div class="wrap">
+                <header class="sec-head reveal">
+                    <span class="sec-num">// 02</span>
+                    <h2>Parcours</h2>
+                    <p class="sec-aside">Expérience et formation, du plus récent au plus ancien.</p>
+                </header>
+
+                <ol class="cv-list">
+                    <li class="cv-row reveal">
+                        <span class="cv-date">Septembre 2026</span>
+                        <div>
+                            <h3>Recherche d'alternance</h3>
+                            <p class="cv-place">1/2 semaine en entreprise · Permis B, véhiculé</p>
+                            <p class="cv-text">Développement Web / UX UI Design. Prêt à appliquer mes compétences en
+                                entreprise.</p>
+                        </div>
+                        <span class="cv-kind is-now">À venir</span>
+                    </li>
+                    <li class="cv-row reveal">
+                        <span class="cv-date">Avril — Juin 2026 · 8 semaines</span>
+                        <div>
+                            <h3>Stage — PALAN INFORMATIQUE</h3>
+                            <p class="cv-place">Plaisir (78) · Vente, réparation &amp; services informatiques</p>
+                            <p class="cv-text">Refonte complète du site web de l'entreprise sous WordPress + Elementor,
+                                création d'une boutique WooCommerce, optimisation SEO (Rank Math) et migration vers
+                                Hostinger. Projet mené en totale autonomie.</p>
+                        </div>
+                        <span class="cv-kind">Expérience</span>
+                    </li>
+                    <li class="cv-row reveal">
+                        <span class="cv-date">2024 — Présent</span>
+                        <div>
+                            <h3>BUT MMI (3ᵉ année)</h3>
+                            <p class="cv-place">IUT de Bobigny</p>
+                            <p class="cv-text">Métiers du Multimédia et de l'Internet. Spécialisation Dev &amp; Design.</p>
+                        </div>
+                        <span class="cv-kind">Formation</span>
+                    </li>
+                    <li class="cv-row reveal">
+                        <span class="cv-date">Sept 2023 — Jan 2024</span>
+                        <div>
+                            <h3>Début BUT Informatique</h3>
+                            <p class="cv-place">IUT Paris Rives de Seine</p>
+                            <p class="cv-text">Semestre initial en informatique pure avant réorientation vers MMI.</p>
+                        </div>
+                        <span class="cv-kind">Formation</span>
+                    </li>
+                    <li class="cv-row reveal">
+                        <span class="cv-date">2021 — 2023</span>
+                        <div>
+                            <h3>Bac STI2D option SIN</h3>
+                            <p class="cv-place">Lycée Agora, Puteaux</p>
+                            <p class="cv-text">Obtenu avec mention Assez Bien.</p>
+                        </div>
+                        <span class="cv-kind">Formation</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ========== COMPÉTENCES ========== -->
+        <section class="section" id="competences">
+            <div class="wrap">
+                <header class="sec-head reveal">
+                    <span class="sec-num">// 03</span>
+                    <h2>Compétences</h2>
+                    <p class="sec-aside">Une combinaison technique et créative.</p>
+                </header>
+
+                <div class="skills">
+                    <div class="skill-col reveal">
+                        <h3>Développement</h3>
+                        <ul>
+                            <li>HTML / CSS / Tailwind</li>
+                            <li>React.js &amp; Next.js</li>
+                            <li>PHP &amp; MySQL</li>
+                            <li>WordPress</li>
+                        </ul>
+                    </div>
+                    <div class="skill-col reveal" style="--delay: .08s">
+                        <h3>Design UI/UX</h3>
+                        <ul>
+                            <li>Figma</li>
+                            <li>Adobe Suite</li>
+                            <li>Prototypage</li>
+                        </ul>
+                    </div>
+                    <div class="skill-col reveal" style="--delay: .16s">
+                        <h3>Outils</h3>
+                        <ul>
+                            <li><i class="fab fa-git-alt" aria-hidden="true"></i>Git &amp; GitHub</li>
+                            <li><i class="fas fa-code" aria-hidden="true"></i>VS Code</li>
+                            <li><i class="fas fa-book" aria-hidden="true"></i>Notion</li>
+                            <li><i class="fab fa-trello" aria-hidden="true"></i>Trello</li>
+                        </ul>
+                    </div>
+                    <div class="skill-col reveal" style="--delay: .24s">
+                        <h3>Soft skills</h3>
+                        <ul>
+                            <li>Méthodologie Agile</li>
+                            <li>Travail d'équipe</li>
+                            <li>Autonomie &amp; curiosité</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== À PROPOS ========== -->
+        <section class="section" id="a-propos">
+            <div class="wrap">
+                <header class="sec-head reveal">
+                    <span class="sec-num">// 04</span>
+                    <h2>À propos</h2>
+                </header>
+
+                <div class="about">
+                    <p class="about-quote reveal">
+                        Ce qui me motive ? Trouver le <em>point d'équilibre parfait</em> entre une esthétique soignée et
+                        un code propre et performant.
+                    </p>
+                    <div class="about-side reveal" style="--delay: .1s">
+                        <p>J'ai <strong>21 ans</strong> et je vis à Courbevoie (92). Actuellement en troisième année de
+                            <strong>BUT MMI à l'IUT de Bobigny</strong>, je me spécialise dans le développement web
+                            Fullstack et le design d'interface. Titulaire du <strong>permis B</strong> et
+                            <strong>véhiculé</strong>.</p>
+                        <div>
+                            <p class="label">Ce que j'aime</p>
+                            <ul class="interests">
+                                <li><i class="fas fa-camera" aria-hidden="true"></i>Photo</li>
+                                <li><i class="fas fa-hand-fist" aria-hidden="true"></i>Boxe thaï</li>
+                                <li><i class="fas fa-plane" aria-hidden="true"></i>Voyage</li>
+                                <li><i class="fas fa-music" aria-hidden="true"></i>Musique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT ========== -->
+        <section class="section" id="contact">
+            <div class="wrap">
+                <header class="sec-head reveal">
+                    <span class="sec-num">// 05</span>
+                    <p class="label">Contact</p>
+                    <p class="sec-aside">Je suis toujours intéressé par de nouvelles opportunités et collaborations.</p>
+                </header>
+
+                <h2 class="contact-title reveal-lines">
+                    <span class="split-line"><span>Un projet en tête ?</span></span>
+                    <span class="split-line" style="--delay: .1s"><span><em>Parlons-en.</em><span class="caret" aria-hidden="true"></span></span></span>
+                </h2>
+
+                <div class="contact-mail reveal">
+                    <a href="mailto:Kylian-giard@outlook.fr" id="email-link">Kylian-giard@outlook.fr</a>
+                    <button type="button" class="icon-btn" id="copy-email" aria-label="Copier l'adresse email">
+                        <i class="far fa-copy" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="contact-grid">
+                    <nav class="contact-links reveal" aria-label="Liens de contact">
+                        <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank"
+                            rel="noopener">
+                            <span><i class="fab fa-linkedin-in" aria-hidden="true"></i>&nbsp; LinkedIn</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/kyliango" target="_blank" rel="noopener">
+                            <span><i class="fab fa-github" aria-hidden="true"></i>&nbsp; GitHub</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a href="CV.pdf" download>
+                            <span><i class="fas fa-file-lines" aria-hidden="true"></i>&nbsp; Mon CV (PDF)</span>
+                            <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                    </nav>
+
+                    <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/meoyplby"
+                        method="POST" style="--delay: .1s">
+                        <div class="field">
+                            <label for="cf-name">Nom</label>
+                            <input id="cf-name" type="text" name="name" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" type="email" name="email" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Envoyer le message <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                        <p class="form-note">Vos données servent uniquement à vous répondre.
+                            <a href="mentions-legales.html#donnees">En savoir plus</a></p>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="py-12 px-6 lg:px-8 bg-charcoal text-white relative z-10">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-white/60 mb-4">© 2026 Kylian Giard Ouadifi. Tous droits réservés.</p>
-            <a href="mentions-legales.html"
-                class="text-white/40 hover:text-white/60 text-sm transition-colors underline">
-                Mentions Légales
-            </a>
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-row">
+                <p>© 2026 Kylian Giard Ouadifi. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="https://github.com/kyliango" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kylian-ilyès-giard-ouadifi-0a837925b" target="_blank"
+                        rel="noopener">LinkedIn</a>
+                    <a href="#top">Haut de page ↑</a>
+                </div>
+            </div>
+            <p class="wordmark" aria-hidden="true">KGO<span>.</span></p>
         </div>
     </footer>
 
-    <div id="modal-ecodash"
-        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
-        onclick="closeModal('modal-ecodash')">
-        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
-            onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-ecodash')"
-                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times text-charcoal"></i>
-            </button>
-            <div class="h-72 bg-gradient-to-br from-green-100 to-emerald-200 relative">
-                <img src="https://picsum.photos/seed/ecotrack/1200/600"
-                    class="w-full h-full object-cover opacity-80">
+    <!-- ========== MODALE PROJET (une seule, remplie depuis les <template>) ========== -->
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+        <button type="button" class="icon-btn dialog-close" aria-label="Fermer">
+            <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="dialog-content"></div>
+    </dialog>
+
+    <template id="project-palan" data-tint="green">
+        <div class="dialog-cover">
+            <p class="brand">PALAN INFORMATIQUE</p>
+            <p class="sub">Stage · Avril — Juin 2026 · Plaisir (78) · BUT2 MMI</p>
+        </div>
+        <div class="dialog-body">
+            <ul class="tags">
+                <li class="tag">WordPress</li>
+                <li class="tag">Elementor</li>
+                <li class="tag">WooCommerce</li>
+                <li class="tag">Rank Math SEO</li>
+                <li class="tag">Wordfence</li>
+                <li class="tag">Hostinger</li>
+            </ul>
+            <h2 id="dialog-title">Refonte Site Web — PALAN INFORMATIQUE</h2>
+            <p class="intro">Refonte intégrale du site web de PALAN INFORMATIQUE (vente, réparation &amp; services
+                informatiques à Plaisir, 78) en 8 semaines de stage. Projet mené entièrement en autonomie, sans cahier
+                des charges formalisé — j'ai reconstitué moi-même les intentions du client et livré un site fonctionnel
+                dans les délais.</p>
+            <div class="dialog-cols">
+                <div>
+                    <h3>Mission principale</h3>
+                    <ul class="case-points">
+                        <li><i class="fas fa-check" aria-hidden="true"></i>Reconstruction intégrale sous WordPress + Elementor (méthode itérative, sans maquette Figma)</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>Architecture complète : Accueil, Particuliers, Entreprises, Boutique, Blog, Contact</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>Boutique WooCommerce avec fiches produits et photos prises sur place</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>SEO optimisé avec Rank Math (sitemap XML, rich snippets, métadonnées)</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>Responsive vérifié sur desktop, tablette et mobile</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>Développement local (Local) → migration Hostinger</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i>Sécurisation Wordfence (WAF + scanner malwares)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Mission secondaire</h3>
+                    <p>Amorce du site <strong>PALAN CONSULTING</strong> (société de conseil en cybersécurité du même
+                        dirigeant) sur sous-domaine Hostinger en préproduction — page d'accueil et page des offres.</p>
+                    <h3>Contexte particulier</h3>
+                    <p>Projet mené <strong>seul</strong> (seul salarié parti pendant le stage), avec un dirigeant absent
+                        2 jours/semaine. J'ai reconstitué le cahier des charges à partir des intentions du client et
+                        assuré des validations hebdomadaires.</p>
+                </div>
             </div>
-            <div class="p-8 lg:p-12">
-                <div class="flex gap-2 mb-4">
-                    <span class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">UX/UI</span>
-                    <span class="px-3 py-1 bg-mint/20 text-green-700 text-xs font-bold rounded-full">Next.js</span>
-                </div>
-                <h3 class="font-display text-4xl font-bold mb-4">EcoTrack Dashboard</h3>
-                <p class="text-slate text-lg leading-relaxed mb-8">
-                    Application web interactive conçue pour sensibiliser les étudiants universitaires à leur empreinte
-                    carbone quotidienne.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">Approche UX/UI</h4>
-                        <p class="text-slate text-sm">Création de personas étudiants. Design émotionnel avec teintes
-                            vertes apaisantes et micro-interactions gamifiées.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">Solution Apportée</h4>
-                        <p class="text-slate text-sm">Tableau de bord gamifié avec graphiques interactifs (Chart.js) et
-                            système de badges.</p>
-                    </div>
-                </div>
-                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Figma</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Next.js</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Tailwind CSS</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Chart.js</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://kyliango.github.io/ecotrack-dashboard/" target="_blank"
-                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
-                        <i class="fas fa-external-link-alt"></i>Voir le site
-                    </a>
-                    <a href="https://github.com/kyliango/ecotrack-dashboard" target="_blank"
-                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
-                        <i class="fab fa-github"></i>Code source
-                    </a>
-                </div>
+            <div>
+                <h3>Stack technique</h3>
+                <ul class="chip-list">
+                    <li class="chip">WordPress</li>
+                    <li class="chip">Elementor</li>
+                    <li class="chip">WooCommerce</li>
+                    <li class="chip">Rank Math SEO</li>
+                    <li class="chip">Wordfence</li>
+                    <li class="chip">Local (dev)</li>
+                    <li class="chip">Hostinger</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <a href="https://palan-informatique.fr/" target="_blank" rel="noopener" class="btn btn-primary">
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Voir le site livré
+                </a>
             </div>
         </div>
-    </div>
+    </template>
 
-    <div id="modal-cinematch"
-        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
-        onclick="closeModal('modal-cinematch')">
-        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
-            onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-cinematch')"
-                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times text-charcoal"></i>
-            </button>
-            <div class="h-72 bg-gradient-to-br from-pink-100 to-purple-200 relative">
-                <img src="https://picsum.photos/seed/cinematch/1200/600"
-                    class="w-full h-full object-cover opacity-80">
+    <template id="project-jobtrackr" data-tint="blue">
+        <div class="dialog-cover">
+            <i class="fas fa-table-columns" aria-hidden="true"></i>
+            <p class="brand">JobTrackr</p>
+        </div>
+        <div class="dialog-body">
+            <ul class="tags">
+                <li class="tag">Fullstack</li>
+                <li class="tag">React</li>
+                <li class="tag">Firebase</li>
+            </ul>
+            <h2 id="dialog-title">JobTrackr</h2>
+            <p class="intro">Application web fullstack de gestion et suivi de candidatures professionnelles avec
+                authentification et base de données temps réel.</p>
+            <div class="dialog-cols">
+                <div>
+                    <h3>Approche UX/UI</h3>
+                    <p>Interface Kanban inspirée de Trello avec 5 colonnes de statut. Design system cohérent avec dark
+                        mode natif activable via toggle. Micro-interactions fluides pour le drag &amp; drop tactile et
+                        desktop.</p>
+                </div>
+                <div>
+                    <h3>Solution technique</h3>
+                    <p>Stack moderne React + Vite avec authentification Firebase Auth et base de données Firestore.
+                        Système de permissions granulaires côté serveur (Firestore Rules). State management via Context
+                        API.</p>
+                </div>
             </div>
-            <div class="p-8 lg:p-12">
-                <div class="flex gap-2 mb-4">
-                    <span class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">React</span>
-                    <span class="px-3 py-1 bg-lavender/20 text-purple-700 text-xs font-bold rounded-full">API
-                        Rest</span>
-                </div>
-                <h3 class="font-display text-4xl font-bold mb-4">CinéMatch AI</h3>
-                <p class="text-slate text-lg leading-relaxed mb-8">Interface de recommandation de films intelligente
-                    basée sur l'humeur de l'utilisateur via l'API TMDB.</p>
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">Challenge Technique</h4>
-                        <p class="text-slate text-sm">Connexion à l'API TMDB et filtrage performant sans rechargement de
-                            page (AJAX/Fetch).</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">Design UI & UX</h4>
-                        <p class="text-slate text-sm">Architecture simplifiée, esthétique cinématique sombre avec
-                            transitions fluides.</p>
-                    </div>
-                </div>
-                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">React.js</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Tailwind CSS</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">API TMDB</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Adobe XD</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://kyliango.github.io/cinematch-ai/" target="_blank"
-                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
-                        <i class="fas fa-external-link-alt"></i>Voir le site
-                    </a>
-                    <a href="https://github.com/kyliango/cinematch-ai" target="_blank"
-                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
-                        <i class="fab fa-github"></i>Code source
-                    </a>
-                </div>
+            <div>
+                <h3>Stack technique</h3>
+                <ul class="chip-list">
+                    <li class="chip">React 19</li>
+                    <li class="chip">Vite</li>
+                    <li class="chip">Firebase Auth</li>
+                    <li class="chip">Firestore</li>
+                    <li class="chip">React Router</li>
+                    <li class="chip">Vercel</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <a href="https://jobtrackr-tawny.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Voir le site
+                </a>
+                <a href="https://github.com/kyliango/jobtrackr" target="_blank" rel="noopener" class="btn btn-ghost">
+                    <i class="fab fa-github" aria-hidden="true"></i> Code source
+                </a>
             </div>
         </div>
-    </div>
+    </template>
 
-    <div id="modal-restoconnect"
-        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
-        onclick="closeModal('modal-restoconnect')">
-        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
-            onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-restoconnect')"
-                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times text-charcoal"></i>
-            </button>
-            <div class="h-72 bg-gradient-to-br from-orange-100 to-yellow-200 relative">
-                <img src="https://picsum.photos/seed/restoconnect/1200/600"
-                    class="w-full h-full object-cover opacity-80">
+    <template id="project-ecotrack" data-tint="green">
+        <div class="dialog-cover">
+            <i class="fas fa-leaf" aria-hidden="true"></i>
+            <p class="brand">EcoTrack Dashboard</p>
+        </div>
+        <div class="dialog-body">
+            <ul class="tags">
+                <li class="tag">UX/UI</li>
+                <li class="tag">Next.js</li>
+            </ul>
+            <h2 id="dialog-title">EcoTrack Dashboard</h2>
+            <p class="intro">Application web interactive conçue pour sensibiliser les étudiants universitaires à leur
+                empreinte carbone quotidienne.</p>
+            <div class="dialog-cols">
+                <div>
+                    <h3>Approche UX/UI</h3>
+                    <p>Création de personas étudiants. Design émotionnel avec teintes vertes apaisantes et
+                        micro-interactions gamifiées.</p>
+                </div>
+                <div>
+                    <h3>Solution apportée</h3>
+                    <p>Tableau de bord gamifié avec graphiques interactifs (Chart.js) et système de badges.</p>
+                </div>
             </div>
-            <div class="p-8 lg:p-12">
-                <div class="flex gap-2 mb-4">
-                    <span class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">Fullstack</span>
-                    <span class="px-3 py-1 bg-peach/20 text-orange-700 text-xs font-bold rounded-full">PHP/MySQL</span>
-                </div>
-                <h3 class="font-display text-4xl font-bold mb-4">RestoConnect</h3>
-                <p class="text-slate text-lg leading-relaxed mb-8">Solution clé en main pour restaurateurs : site
-                    vitrine client et panel d'administration sécurisé. (Mot de passe pour l'espace pro : <strong class="text-charcoal font-semibold">admin123</strong>)</p>
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">UX Admin</h4>
-                        <p class="text-slate text-sm">Interface pensée pour utilisateurs novices. Gros boutons, feedback
-                            immédiat (toasts) et prévention d'erreurs.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">UI & Accessibilité</h4>
-                        <p class="text-slate text-sm">Design Mobile First avec attention aux zones tactiles et
-                            contrastes WCAG.</p>
-                    </div>
-                </div>
-                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">PHP 8</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">MySQL</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">SASS/SCSS</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">MVC Pattern</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://kyliangiardouadifi.alwaysdata.net/" target="_blank"
-                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
-                        <i class="fas fa-external-link-alt"></i>Voir le site
-                    </a>
-                    <a href="https://github.com/kyliango/restoconnect" target="_blank"
-                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
-                        <i class="fab fa-github"></i>Code source
-                    </a>
-                </div>
+            <div>
+                <h3>Stack technique</h3>
+                <ul class="chip-list">
+                    <li class="chip">Figma</li>
+                    <li class="chip">Next.js</li>
+                    <li class="chip">Tailwind CSS</li>
+                    <li class="chip">Chart.js</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <a href="https://kyliango.github.io/ecotrack-dashboard/" target="_blank" rel="noopener"
+                    class="btn btn-primary">
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Voir le site
+                </a>
+                <a href="https://github.com/kyliango/ecotrack-dashboard" target="_blank" rel="noopener"
+                    class="btn btn-ghost">
+                    <i class="fab fa-github" aria-hidden="true"></i> Code source
+                </a>
             </div>
         </div>
-    </div>
+    </template>
 
-    <div id="modal-jobtrackr"
-        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
-        onclick="closeModal('modal-jobtrackr')">
-        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
-            onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-jobtrackr')"
-                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times text-charcoal"></i>
-            </button>
-            <div class="h-72 bg-gradient-to-br from-indigo-100 to-blue-200 relative">
-                <img src="https://picsum.photos/seed/jobtrackr/1200/600"
-                    class="w-full h-full object-cover opacity-80">
+    <template id="project-cinematch" data-tint="purple">
+        <div class="dialog-cover">
+            <i class="fas fa-film" aria-hidden="true"></i>
+            <p class="brand">CinéMatch AI</p>
+        </div>
+        <div class="dialog-body">
+            <ul class="tags">
+                <li class="tag">React</li>
+                <li class="tag">API REST</li>
+            </ul>
+            <h2 id="dialog-title">CinéMatch AI</h2>
+            <p class="intro">Interface de recommandation de films intelligente basée sur l'humeur de l'utilisateur via
+                l'API TMDB.</p>
+            <div class="dialog-cols">
+                <div>
+                    <h3>Challenge technique</h3>
+                    <p>Connexion à l'API TMDB et filtrage performant sans rechargement de page (AJAX/Fetch).</p>
+                </div>
+                <div>
+                    <h3>Design UI &amp; UX</h3>
+                    <p>Architecture simplifiée, esthétique cinématique sombre avec transitions fluides.</p>
+                </div>
             </div>
-            <div class="p-8 lg:p-12">
-                <div class="flex gap-2 mb-4">
-                    <span class="px-3 py-1 bg-sky/20 text-blue-700 text-xs font-bold rounded-full">Fullstack</span>
-                    <span class="px-3 py-1 bg-sky/20 text-blue-700 text-xs font-bold rounded-full">React</span>
-                    <span class="px-3 py-1 bg-sky/20 text-blue-700 text-xs font-bold rounded-full">Firebase</span>
-                </div>
-                <h3 class="font-display text-4xl font-bold mb-4">JobTrackr</h3>
-                <p class="text-slate text-lg leading-relaxed mb-8">
-                    Application web fullstack de gestion et suivi de candidatures professionnelles avec authentification
-                    et base de données temps réel.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">Approche UX/UI</h4>
-                        <p class="text-slate text-sm">Interface Kanban inspirée de Trello avec 5 colonnes de statut.
-                            Design system cohérent avec dark mode natif activable via toggle. Micro-interactions fluides
-                            pour le drag & drop tactile et desktop.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-2">Solution Technique</h4>
-                        <p class="text-slate text-sm">Stack moderne React + Vite avec authentification Firebase Auth et
-                            base de données Firestore. Système de permissions granulaires côté serveur (Firestore
-                            Rules). State management via Context API.</p>
-                    </div>
-                </div>
-                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">React 19</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Vite</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Firebase Auth</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Firestore</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">React Router</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Vercel</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://jobtrackr-tawny.vercel.app/" target="_blank"
-                        class="bg-charcoal text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
-                        <i class="fas fa-external-link-alt"></i>Voir le site
-                    </a>
-                    <a href="https://github.com/kyliango/jobtrackr" target="_blank"
-                        class="border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-bold hover:bg-charcoal hover:text-white transition-all inline-flex items-center gap-2">
-                        <i class="fab fa-github"></i>Code source
-                    </a>
-                </div>
+            <div>
+                <h3>Stack technique</h3>
+                <ul class="chip-list">
+                    <li class="chip">React.js</li>
+                    <li class="chip">Tailwind CSS</li>
+                    <li class="chip">API TMDB</li>
+                    <li class="chip">Adobe XD</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <a href="https://kyliango.github.io/cinematch-ai/" target="_blank" rel="noopener"
+                    class="btn btn-primary">
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Voir le site
+                </a>
+                <a href="https://github.com/kyliango/cinematch-ai" target="_blank" rel="noopener"
+                    class="btn btn-ghost">
+                    <i class="fab fa-github" aria-hidden="true"></i> Code source
+                </a>
             </div>
         </div>
-    </div>
+    </template>
 
-    <div id="modal-palan"
-        class="fixed inset-0 bg-charcoal/95 backdrop-blur-md hidden items-center justify-center z-[60] p-6"
-        onclick="closeModal('modal-palan')">
-        <div class="bg-white w-full max-w-4xl rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
-            onclick="event.stopPropagation()">
-            <button onclick="closeModal('modal-palan')"
-                class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times text-charcoal"></i>
-            </button>
-            <div class="h-48 bg-gradient-to-br from-green-50 to-emerald-100 relative flex items-center justify-center">
-                <div class="text-center">
-                    <p class="font-display text-5xl font-bold text-green-800">PALAN INFORMATIQUE</p>
-                    <p class="text-green-600 mt-2 font-semibold">Stage · Avril — Juin 2026 · Plaisir (78)</p>
+    <template id="project-restoconnect" data-tint="orange">
+        <div class="dialog-cover">
+            <i class="fas fa-utensils" aria-hidden="true"></i>
+            <p class="brand">RestoConnect</p>
+        </div>
+        <div class="dialog-body">
+            <ul class="tags">
+                <li class="tag">Fullstack</li>
+                <li class="tag">PHP/MySQL</li>
+            </ul>
+            <h2 id="dialog-title">RestoConnect</h2>
+            <p class="intro">Solution clé en main pour restaurateurs : site vitrine client et panel d'administration
+                sécurisé. (Mot de passe pour l'espace pro : <strong>admin123</strong>)</p>
+            <div class="dialog-cols">
+                <div>
+                    <h3>UX Admin</h3>
+                    <p>Interface pensée pour utilisateurs novices. Gros boutons, feedback immédiat (toasts) et
+                        prévention d'erreurs.</p>
                 </div>
-                <div class="absolute top-4 left-8">
-                    <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">8 semaines · BUT2 MMI</span>
+                <div>
+                    <h3>UI &amp; Accessibilité</h3>
+                    <p>Design Mobile First avec attention aux zones tactiles et contrastes WCAG.</p>
                 </div>
             </div>
-            <div class="p-8 lg:p-12">
-                <div class="flex gap-2 mb-6 flex-wrap">
-                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WordPress</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Elementor</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">WooCommerce</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Rank Math SEO</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Wordfence</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Hostinger</span>
-                </div>
-                <h3 class="font-display text-4xl font-bold mb-4">Refonte Site Web — PALAN INFORMATIQUE</h3>
-                <p class="text-slate text-lg leading-relaxed mb-8">
-                    Refonte intégrale du site web de PALAN INFORMATIQUE (vente, réparation & services informatiques à Plaisir, 78) en 8 semaines de stage. Projet mené entièrement en autonomie, sans cahier des charges formalisé — j'ai reconstitué moi-même les intentions du client et livré un site fonctionnel dans les délais.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-3">Mission principale</h4>
-                        <ul class="space-y-2 text-slate text-sm">
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Reconstruction intégrale sous WordPress + Elementor (méthode itérative, sans maquette Figma)</li>
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Architecture complète : Accueil, Particuliers, Entreprises, Boutique, Blog, Contact</li>
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Boutique WooCommerce avec fiches produits et photos prises sur place</li>
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>SEO optimisé avec Rank Math (sitemap XML, rich snippets, métadonnées)</li>
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Responsive vérifié sur desktop, tablette et mobile</li>
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Développement local (Local) → migration Hostinger</li>
-                            <li class="flex gap-2"><i class="fas fa-check text-green-500 mt-0.5"></i>Sécurisation Wordfence (WAF + scanner malwares)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-charcoal mb-3">Mission secondaire</h4>
-                        <p class="text-slate text-sm mb-4">Amorce du site <strong class="text-charcoal">PALAN CONSULTING</strong> (société de conseil en cybersécurité du même dirigeant) sur sous-domaine Hostinger en préproduction — page d'accueil et page des offres.</p>
-                        <h4 class="font-bold text-charcoal mb-3">Contexte particulier</h4>
-                        <p class="text-slate text-sm">Projet mené <strong class="text-charcoal">seul</strong> (seul salarié parti pendant le stage), avec un dirigeant absent 2 jours/semaine. J'ai reconstitué le cahier des charges à partir des intentions du client et assuré des validations hebdomadaires.</p>
-                    </div>
-                </div>
-                <h4 class="font-bold text-charcoal mb-3">Stack Technique</h4>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">WordPress</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Elementor</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">WooCommerce</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Rank Math SEO</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Wordfence</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Local (dev)</span>
-                    <span class="px-4 py-2 bg-sand rounded-full text-sm font-medium">Hostinger</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://palan-informatique.fr/" target="_blank"
-                        class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-flex items-center gap-2">
-                        <i class="fas fa-external-link-alt"></i>Voir le site livré
-                    </a>
-                </div>
+            <div>
+                <h3>Stack technique</h3>
+                <ul class="chip-list">
+                    <li class="chip">PHP 8</li>
+                    <li class="chip">MySQL</li>
+                    <li class="chip">SASS/SCSS</li>
+                    <li class="chip">MVC Pattern</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <a href="https://kyliangiardouadifi.alwaysdata.net/" target="_blank" rel="noopener"
+                    class="btn btn-primary">
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Voir le site
+                </a>
+                <a href="https://github.com/kyliango/restoconnect" target="_blank" rel="noopener"
+                    class="btn btn-ghost">
+                    <i class="fab fa-github" aria-hidden="true"></i> Code source
+                </a>
             </div>
         </div>
-    </div>
+    </template>
 
-    <div id="notification"
-        class="fixed bottom-6 right-6 bg-charcoal text-white px-6 py-4 rounded-2xl shadow-2xl translate-y-32 transition-transform duration-300 z-50 flex items-center font-semibold">
-        <i class="fas fa-check-circle mr-3 text-mint"></i>
-        <span id="notif-text">Message envoyé !</span>
+    <!-- Notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fas fa-circle-check" aria-hidden="true"></i>
+        <span id="toast-text"></span>
     </div>
 
     <script src="script.js"></script>

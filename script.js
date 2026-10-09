@@ -1,227 +1,172 @@
-function toggleDarkMode() {
-    const html = document.documentElement;
-    const isDark = html.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    const icon = document.getElementById('theme-icon');
-    const iconMobile = document.getElementById('theme-icon-mobile');
-    if (isDark) {
-        icon && (icon.className = 'fas fa-sun text-yellow-400');
-        iconMobile && (iconMobile.className = 'fas fa-sun text-yellow-400');
-    } else {
-        icon && (icon.className = 'fas fa-moon text-charcoal');
-        iconMobile && (iconMobile.className = 'fas fa-moon text-charcoal');
-    }
+// Portfolio — Kylian Giard Ouadifi
+// Script partagé par index.html et mentions-legales.html (chaque bloc vérifie ses éléments).
+
+const root = document.documentElement;
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+// ---------- Thème clair / sombre ----------
+function currentTheme() {
+    return root.dataset.theme || (prefersDark.matches ? 'dark' : 'light');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    const icon = document.getElementById('theme-icon');
-    const iconMobile = document.getElementById('theme-icon-mobile');
-    if (isDark) {
-        icon && (icon.className = 'fas fa-sun text-yellow-400');
-        iconMobile && (iconMobile.className = 'fas fa-sun text-yellow-400');
-    }
+document.querySelectorAll('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const next = currentTheme() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) { /* stockage indisponible : le choix vaut pour la session */ }
+    });
 });
 
-function toggleMobileMenu() {
-    document.getElementById('mobile-menu-overlay').classList.toggle('active');
-    document.getElementById('mobile-menu-panel').classList.toggle('active');
-    document.body.style.overflow = document.getElementById('mobile-menu-overlay').classList.contains('active') ? 'hidden' : '';
+// ---------- Header : bordure au scroll ----------
+const header = document.getElementById('site-header');
+if (header) {
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('active');
-                if (window.innerWidth <= 768) {
-                    entry.target.classList.add('mobile-reveal');
-                }
-            }, index * 100);
+// ---------- Menu mobile ----------
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+function setMenu(open) {
+    navLinks.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    navToggle.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
+    document.body.classList.toggle('menu-open', open);
+}
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('is-open')));
+    navLinks.addEventListener('click', (e) => {
+        if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
+            setMenu(false);
+            navToggle.focus();
         }
     });
-}, { threshold: 0.1 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-});
-
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.card-3d');
-    parallaxElements.forEach((el, index) => {
-        const speed = 0.5 + (index * 0.1);
-        const yPos = -(scrolled * speed / 100);
-        el.style.transform = `translateY(${yPos}px)`;
+    window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => {
+        if (e.matches) setMenu(false);
     });
-    lastScroll = scrolled;
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.bento-card, .card-3d').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-        });
-    });
-});
-
-function openModal(id) {
-    const modal = document.getElementById(id);
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
 }
 
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = '';
-}
-
-function copyEmail() {
-    navigator.clipboard.writeText('Kylian-giard@outlook.fr');
-    showNotif('Email copié dans le presse-papier !');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
-            submitBtn.disabled = true;
-
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    showNotif('Message envoyé avec succès !');
-                    form.reset();
-                } else {
-                    showNotif('Erreur lors de l\'envoi. Réessayez.');
-                }
-            } catch (error) {
-                showNotif('Erreur de connexion. Réessayez.');
-            } finally {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+// ---------- Apparition au scroll ----------
+const revealEls = document.querySelectorAll('.reveal, .reveal-lines');
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
             }
         });
-    }
-});
-
-function showNotif(msg) {
-    const notif = document.getElementById('notification');
-    document.getElementById('notif-text').innerText = msg;
-    notif.classList.remove('translate-y-32');
-    setTimeout(() => notif.classList.add('translate-y-32'), 3000);
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach((el) => revealObserver.observe(el));
+} else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// ---------- Lien actif dans la navigation ----------
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+if (navAnchors.length && 'IntersectionObserver' in window) {
+    const byId = new Map([...navAnchors].map((a) => [a.getAttribute('href').slice(1), a]));
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const link = byId.get(entry.target.id);
+            if (link && entry.isIntersecting) {
+                navAnchors.forEach((a) => a.removeAttribute('aria-current'));
+                link.setAttribute('aria-current', 'true');
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    byId.forEach((_, id) => {
+        const section = document.getElementById(id);
+        if (section) sectionObserver.observe(section);
+    });
+}
+
+// ---------- Modale projet ----------
+const dialog = document.getElementById('project-dialog');
+if (dialog) {
+    const content = dialog.querySelector('.dialog-content');
+
+    document.querySelectorAll('[data-project]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const tpl = document.getElementById('project-' + trigger.dataset.project);
+            if (!tpl) return;
+            content.replaceChildren(tpl.content.cloneNode(true));
+            dialog.style.setProperty('--tint', `var(--tint-${tpl.dataset.tint || 'blue'})`);
+            dialog.showModal();
+            dialog.scrollTop = 0;
+        });
+    });
+
+    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+
+    // Clic sur le fond (en dehors du contenu) = fermeture
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+    });
+}
+
+// ---------- Notification ----------
+const toast = document.getElementById('toast');
+let toastTimer;
+
+function showToast(message) {
+    if (!toast) return;
+    document.getElementById('toast-text').textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3000);
+}
+
+// ---------- Copier l'email ----------
+const copyBtn = document.getElementById('copy-email');
+if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+        const email = document.getElementById('email-link').textContent.trim();
+        try {
+            await navigator.clipboard.writeText(email);
+            showToast('Email copié dans le presse-papier !');
+        } catch (e) {
+            showToast('Copie impossible — ' + email);
+        }
+    });
+}
+
+// ---------- Formulaire de contact (Formspree) ----------
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (document.getElementById('mobile-menu-overlay').classList.contains('active')) {
-                toggleMobileMenu();
-            }
-        }
-    });
-});
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Envoi…';
+        submitBtn.disabled = true;
 
-if (window.innerWidth <= 768) {
-    document.addEventListener('DOMContentLoaded', () => {
-        const rippleElements = document.querySelectorAll('.magnetic-btn, .bento-card');
-        rippleElements.forEach(el => {
-            el.classList.add('ripple-effect');
-        });
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' },
+            });
+            if (response.ok) {
+                showToast('Message envoyé avec succès !');
+                contactForm.reset();
+            } else {
+                showToast("Erreur lors de l'envoi. Réessayez.");
+            }
+        } catch (err) {
+            showToast('Erreur de connexion. Réessayez.');
+        } finally {
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+        }
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth <= 768) {
-        const cards = document.querySelectorAll('.bento-card, .transform-3d');
-        cards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-        
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        document.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        document.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-        
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                console.log('Swiped left');
-            }
-            if (touchEndX > touchStartX + 50) {
-                console.log('Swiped right');
-            }
-        }
-    }
-});
-
-window.addEventListener('load', () => {
-    if (window.innerWidth <= 768) {
-        const statusBadge = document.querySelector('.glow-effect');
-        if (statusBadge) {
-            statusBadge.classList.add('mobile-pulse');
-        }
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const mobileObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, idx) => {
-            if (entry.isIntersecting && window.innerWidth <= 768) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }, idx * 150);
-            }
-        });
-    }, observerOptions);
-    
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.bento-card, .transform-3d').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px) scale(0.95)';
-            card.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            mobileObserver.observe(card);
-        });
-    }
-});
